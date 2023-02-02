@@ -1,7 +1,8 @@
 import React from "react";
+import Board from "../components/Board/Board";
 
 const Home = () => {
-  return <div>You are now in the home page.</div>;
+  return <div><Board /></div>;
 };
 
 export default Home;
