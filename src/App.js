@@ -3,7 +3,6 @@ import Home from "./pages/home";
 import PuzzleSolved from "./pages/puzzleSolved";
 
 function App() {
-  // Testing this entry ,seeing if it records in remote robert.
   return (
     <Router>
       <Routes>
