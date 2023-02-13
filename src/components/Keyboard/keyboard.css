@@ -1,0 +1,54 @@
+#correct {
+    background-color: #528d4e;
+  }
+  
+  #almost {
+    background-color: #b49f39;
+  }
+  
+  #error {
+    background-color: #3a393c;
+  }
+  
+  .spacer {
+    flex: 0.5;
+  }
+  .keyrow {
+    display: flex;
+    width: 100%;
+    margin: 0 auto 8px;
+  }
+  
+  .thekey {
+   
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    margin: 0 6px 0 0;
+    height: 58px;
+    border-radius: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #d3d6da;
+    color: #000000;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+  }
+  .Keyboard-module_keyboard {
+    width: 100%;
+    max-width: 33%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-top: 30%;
+  }
+  .Keyboard-module_keyboard .enterdeletekey {
+    flex: 1.5;
+    font-size: 12px;
+  }
