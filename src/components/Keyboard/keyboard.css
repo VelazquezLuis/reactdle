@@ -37,7 +37,7 @@
   text-transform: uppercase;
 }
 
-.Keyboard-module-keyboard {
+.keyboard-module-keyboard {
   width: 100%;
   max-width: 33%;
   margin: 0 auto;
@@ -47,7 +47,7 @@
   margin-top: 30%;
 }
 
-.Keyboard-module-keyboard .enterdeletekey {
+.keyboard-module-keyboard .enterdeletekey {
   flex: 1.5;
   font-size: 12px;
 }
