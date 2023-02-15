@@ -1,5 +1,5 @@
-import React from "react";
-import "./puzzleSolved.css";
+import React from 'react';
+import './puzzleSolved.css';
 
 const PuzzleSolved = () => {
   return (

@@ -1,6 +1,5 @@
-import React from "react";
-import "./home.css";
-
+import React from 'react';
+import './home.css';
 
 const Home = () => {
   return (
@@ -8,7 +7,6 @@ const Home = () => {
       <div>
         <div className="Title-Wordle">Wordle</div>
         <div className="Settings">Testing settings</div>
-        
       </div>
     </div>
   );
