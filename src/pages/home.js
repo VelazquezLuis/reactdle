@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="boardBackground">
       <div>
-        <div className="Title-Wordle">Wordle</div>
+        <div className="title-wordle">Wordle</div>
         <Board />
         <div className="Settings">Testing settings</div>
       </div>
