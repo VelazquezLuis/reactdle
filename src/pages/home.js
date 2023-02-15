@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 import React from 'react';
+import Board from '../components/Board/Board';
 import './home.css';
 
 const Home = () => {
@@ -7,17 +7,9 @@ const Home = () => {
     <div className="boardBackground">
       <div>
         <div className="Title-Wordle">Wordle</div>
+        <Board />
         <div className="Settings">Testing settings</div>
       </div>
-=======
-import React from "react";
-import Board from "../components/Board/Board";
-
-const Home = () => {
-  return (
-    <div>
-      <Board />
->>>>>>> 93a98434ee175872282ba766fe707044f3b8066a
     </div>
   );
 };
