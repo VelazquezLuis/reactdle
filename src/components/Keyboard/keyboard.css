@@ -13,6 +13,7 @@
 .spacer {
   flex: 0.5;
 }
+
 .keyrow {
   display: flex;
   width: 100%;
@@ -26,19 +27,17 @@
   margin: 0 6px 0 0;
   height: 58px;
   border-radius: 5px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
   background-color: #d3d6da;
-  color: #000000;
+  color: #000;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }
-.Keyboard-module_keyboard {
+
+.Keyboard-module-keyboard {
   width: 100%;
   max-width: 33%;
   margin: 0 auto;
@@ -47,7 +46,8 @@
   height: 200px;
   margin-top: 30%;
 }
-.Keyboard-module_keyboard .enterdeletekey {
+
+.Keyboard-module-keyboard .enterdeletekey {
   flex: 1.5;
   font-size: 12px;
 }

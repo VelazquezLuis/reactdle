@@ -4,7 +4,7 @@ import "./keyboard.css";
 const Keyboard = (props) => {
   return (
     <div>
-      <div class="Keyboard-module_keyboard" role="group" aria-label="Keyboard">
+      <div class="Keyboard-module-keyboard" role="group" aria-label="Keyboard">
         <div class="keyrow">
           <button type="button" data-key="q" class="thekey">
             q
