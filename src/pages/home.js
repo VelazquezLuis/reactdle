@@ -4,6 +4,8 @@ import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../App';
 import './home.css';
 import music from '../backgroundmusic.mp3';
+import Keyboard from "../components/Keyboard/keyboard";
+import Howtoplaymodal from "../components/Modals/howtoplaymodal";
 
 const Home = () => {
   const infoByContext = useContext(ThemeContext);
@@ -34,7 +36,9 @@ const Home = () => {
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
       <div>
         <div className="title-wordle">Wordle</div>
-        <Board />
+        <Board />        
+      <Keyboard />
+      <Howtoplaymodal />
         <div className="Settings">Testing settings</div>
       </div>
     </div>

@@ -4,107 +4,111 @@ import "./keyboard.css";
 const Keyboard = (props) => {
   return (
     <div>
-      <div class="keyboard-module-keyboard" role="group" aria-label="Keyboard">
-        <div class="keyrow">
-          <button type="button" data-key="q" class="thekey">
+      <div
+        className="keyboard-module-keyboard"
+        role="group"
+        aria-label="Keyboard"
+      >
+        <div className="keyrow">
+          <button type="button" data-key="q" className="thekey">
             q
           </button>
-          <button type="button" data-key="w" class="thekey">
+          <button type="button" data-key="w" className="thekey">
             w
           </button>
-          <button type="button" data-key="e" class="thekey">
+          <button type="button" data-key="e" className="thekey">
             e
           </button>
-          <button type="button" data-key="r" class="thekey">
+          <button type="button" data-key="r" className="thekey">
             r
           </button>
-          <button type="button" data-key="t" class="thekey">
+          <button type="button" data-key="t" className="thekey">
             t
           </button>
-          <button type="button" data-key="y" class="thekey">
+          <button type="button" data-key="y" className="thekey">
             y
           </button>
-          <button type="button" data-key="u" class="thekey">
+          <button type="button" data-key="u" className="thekey">
             u
           </button>
-          <button type="button" data-key="i" class="thekey">
+          <button type="button" data-key="i" className="thekey">
             i
           </button>
-          <button type="button" data-key="o" class="thekey">
+          <button type="button" data-key="o" className="thekey">
             o
           </button>
-          <button type="button" data-key="p" class="thekey">
+          <button type="button" data-key="p" className="thekey">
             p
           </button>
         </div>
-        <div class="keyrow">
-          <div data-testid="spacer" class="spacer"></div>
-          <button type="button" data-key="a" class="thekey">
+        <div className="keyrow">
+          <div data-testid="spacer" className="spacer"></div>
+          <button type="button" data-key="a" className="thekey">
             a
           </button>
-          <button type="button" data-key="s" class="thekey">
+          <button type="button" data-key="s" className="thekey">
             s
           </button>
-          <button type="button" data-key="d" class="thekey">
+          <button type="button" data-key="d" className="thekey">
             d
           </button>
-          <button type="button" data-key="f" class="thekey">
+          <button type="button" data-key="f" className="thekey">
             f
           </button>
-          <button type="button" data-key="g" class="thekey">
+          <button type="button" data-key="g" className="thekey">
             g
           </button>
-          <button type="button" data-key="h" class="thekey">
+          <button type="button" data-key="h" className="thekey">
             h
           </button>
-          <button type="button" data-key="j" class="thekey">
+          <button type="button" data-key="j" className="thekey">
             j
           </button>
-          <button type="button" data-key="k" class="thekey">
+          <button type="button" data-key="k" className="thekey">
             k
           </button>
-          <button type="button" data-key="l" class="thekey">
+          <button type="button" data-key="l" className="thekey">
             l
           </button>
-          <div data-testid="spacer" class="spacer"></div>
+          <div data-testid="spacer" className="spacer"></div>
         </div>
-        <div class="keyrow">
-          <button type="button" data-key="↵" class="thekey enterdeletekey">
+        <div className="keyrow">
+          <button type="button" data-key="↵" className="thekey enterdeletekey">
             enter
           </button>
-          <button type="button" data-key="z" class="thekey">
+          <button type="button" data-key="z" className="thekey">
             z
           </button>
-          <button type="button" data-key="x" class="thekey">
+          <button type="button" data-key="x" className="thekey">
             x
           </button>
-          <button type="button" data-key="c" class="thekey">
+          <button type="button" data-key="c" className="thekey">
             c
           </button>
-          <button type="button" data-key="v" class="thekey">
+          <button type="button" data-key="v" className="thekey">
             v
           </button>
-          <button type="button" data-key="b" class="thekey">
+          <button type="button" data-key="b" className="thekey">
             b
           </button>
-          <button type="button" data-key="n" class="thekey">
+          <button type="button" data-key="n" className="thekey">
             n
           </button>
-          <button type="button" data-key="m" class="thekey">
+          <button type="button" data-key="m" className="thekey">
             m
           </button>
           <button
             type="button"
             data-key="←"
             aria-label="backspace"
-            class="thekey enterdeletekey"
+            className="thekey enterdeletekey"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24"
               viewBox="0 0 24 24"
               width="24"
-              class="game-icon"
+              className="game-icon"
               data-testid="icon-backspace"
             >
               <path
