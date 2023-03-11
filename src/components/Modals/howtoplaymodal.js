@@ -5,12 +5,11 @@ import "./howtoplaymodal.css";
 
 function Howtoplaymodal(props) {
   const [show, setShow] = useState(true);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
-    <>
+    <div>
       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
@@ -37,7 +36,7 @@ function Howtoplaymodal(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }
 
