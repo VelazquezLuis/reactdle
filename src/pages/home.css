@@ -1,14 +1,10 @@
-.title-wordle{
-    /* flex-grow: 2; */
-    font-size: 36px;
-    font-family: Tinos, serif;
-    text-align: center;
-    font-weight: "bold";
-    
-
-
+.title-wordle {
+  font-size: 36px;
+  font-family: Tinos, serif;
+  text-align: "center";
+  font-weight: bold;
 }
 
-.Settings{
-    text-align: right;
+.settings {
+  text-align: right;
 }
