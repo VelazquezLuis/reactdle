@@ -9,7 +9,7 @@ function Howtoplaymodal(props) {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <div id="Modal">
       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
