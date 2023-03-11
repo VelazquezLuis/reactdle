@@ -1,6 +1,6 @@
-import React from "react";
-import Tile from "../Tile/Tile";
-import "./board.css";
+import React from 'react';
+import Tile from '../Tile/Tile';
+import './board.css';
 
 const Board = () => {
   let tiles = [];
