@@ -1,0 +1,24 @@
+
+	My Tasks for RWordle:
+
+	Nav bar with gear/settings:
+
+	*1st setting: Dark Theme
+
+	*2nd setting: Background song - free of copywright
+
+	*3rd task - so add settings to bottom (as instructed by Felipe) then
+		if I have time make modal for the settings, but do both.
+
+
+-------------------------
+
+	wordle 			font size: 36 px;
+				text-align: center
+				font-family: "nyt-karnakcondensed"; 	// So count not find font on GoogleFonts, so used
+					a close one, search GoogleFonts and found: Tinos
+					webAddress:	https://fonts.google.com/specimen/Tinos#styles
+
+    				font-weight: 700;
+	    			position: relative;
+		   		--color-tone-1: #ffffff;
