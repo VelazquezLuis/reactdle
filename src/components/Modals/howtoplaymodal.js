@@ -1,47 +1,44 @@
-import React, { useState, useEffect } from "react";
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import "./howtoplaymodal.css";
 
-const Howtoplaymodal = (props) => {
-  cconst [show, setShow] = useState(false);
+function Howtoplaymodal(props) {
+  const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      handleShow(); 
-        }, 2000);
-  }, []);
-
   return (
-    <div>
-<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
 
-
- <Modal show={show} onHide={handleClose} className="modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" show={show}>
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div className="modal-body">
-        ...
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-  </Modal>
-    </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>How To Play</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+            <h4>Guess the Wordle in 6 tries.</h4>
+            <ul>
+              <li>Each guess must be a valid 5-letter word.</li>
+              <li>
+                The color of the tiles will change to show how close your guess
+                was to the word.
+              </li>
+            </ul>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
-};
+}
 
 export default Howtoplaymodal;
