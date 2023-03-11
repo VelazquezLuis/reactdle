@@ -1,9 +1,9 @@
-import React, { useContext, useRef, useCallback, useState } from 'react';
-import Board from '../components/Board/Board';
-import ReactSwitch from 'react-switch';
-import { ThemeContext } from '../App';
-import './home.css';
-import music from '../backgroundmusic.mp3';
+import React, { useContext, useRef, useCallback, useState } from "react";
+import Board from "../components/Board/Board";
+import ReactSwitch from "react-switch";
+import { ThemeContext } from "../App";
+import "./home.css";
+import music from "../backgroundmusic.mp3";
 import Keyboard from "../components/Keyboard/keyboard";
 import Howtoplaymodal from "../components/Modals/howtoplaymodal";
 
@@ -26,21 +26,21 @@ const Home = () => {
 
   return (
     <div className="boardBackground">
-      Dark Theme:{' '}
+      Dark Theme:{" "}
       <ReactSwitch
         onChange={infoByContext.toggleTheme}
-        checked={infoByContext.theme === 'dark'} // may serve another purpose. more research needed.
+        checked={infoByContext.theme === "dark"} // may serve another purpose. more research needed.
       />
       <audio ref={audioRef} src={music}></audio>
       Play Sound:
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
+      <div className="title-wordle">Wordle</div>
       <div className="board-wrapper">
-        <div className="title-wordle">Wordle</div>
-        <Board />        
+        <Board />
+      </div>
       <Keyboard />
       <Howtoplaymodal />
-        <div className="Settings">Testing settings</div>
-      </div>
+      <div className="Settings">Testing settings</div>
     </div>
   );
 };

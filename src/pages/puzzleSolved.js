@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import './puzzleSolved.css';
-import ReactSwitch from 'react-switch';
-import { ThemeContext } from '../App';
+import React, { useContext } from "react";
+import "./puzzleSolved.css";
+import ReactSwitch from "react-switch";
+import { ThemeContext } from "../App";
 
 // const toggleTheme = () => {
 //   setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
@@ -13,7 +13,7 @@ const PuzzleSolved = () => {
       *** Congratulations *** The puzzle has been solved.
       <ReactSwitch
         onChange={infoByContext.toggleTheme}
-        checked={infoByContext.theme === 'dark'} // may serve another purpose. more research needed.
+        checked={infoByContext.theme === "dark"} // may serve another purpose. more research needed.
       />
     </div>
   );
