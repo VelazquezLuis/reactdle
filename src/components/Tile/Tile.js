@@ -4,7 +4,7 @@ import "./tile.css";
 const Tile = (props) => {
   return (
     <div className="tile">
-      r:{props.row} c:{props.col}
+      {props.tileNumber}
     </div>
   );
 };
