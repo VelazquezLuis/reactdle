@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Modal from 'react-bootstrap/Modal';
 import "./howtoplaymodal.css";
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.modal').classList.add('show');
-  });
-
 const Howtoplaymodal = (props) => {
-    
+  cconst [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      handleShow(); 
+        }, 2000);
+  }, []);
+
   return (
     <div>
 <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button>
 
-<div className="modal " id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+ <Modal show={show} onHide={handleClose} className="modal" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" show={show}>
   <div className="modal-dialog">
     <div className="modal-content">
       <div className="modal-header">
@@ -31,7 +39,7 @@ const Howtoplaymodal = (props) => {
       </div>
     </div>
   </div>
-</div>
+  </Modal>
     </div>
   );
 };
