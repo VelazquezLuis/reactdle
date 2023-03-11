@@ -1,9 +1,9 @@
-.Title-Wordle{
+.title-wordle{
     /* flex-grow: 2; */
     font-size: 36px;
-    font-family: 'Tinos', serif;
+    font-family: Tinos, serif;
     text-align: center;
-    font-weight: bold;
+    font-weight: "bold";
     
 
 
