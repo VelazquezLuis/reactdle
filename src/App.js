@@ -2,7 +2,9 @@ import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
-import PuzzleSolved from './pages/puzzleSolved';
+import PuzzleSolved from './pages/puzzleSolved'
+import Keyboard from "./components/Keyboard/keyboard";
+
 // import ReactSwitch from 'react-switch';
 export const ThemeContext = createContext(null);
 
