@@ -1,11 +1,12 @@
 import React, { useContext, useRef, useCallback, useState } from 'react';
+import Navbar from '../components/Navbar/Navbar';
 import Board from '../components/Board/Board';
 import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../App';
 import './home.css';
 import music from '../backgroundmusic.mp3';
-import Keyboard from "../components/Keyboard/keyboard";
-import Howtoplaymodal from "../components/Modals/howtoplaymodal";
+import Keyboard from '../components/Keyboard/keyboard';
+import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
   const infoByContext = useContext(ThemeContext);
@@ -26,7 +27,8 @@ const Home = () => {
 
   return (
     <div className="boardBackground">
-      Dark Theme:{' '}
+      <Navbar className="navbarCss" />
+      Dark Theme:
       <ReactSwitch
         onChange={infoByContext.toggleTheme}
         checked={infoByContext.theme === 'dark'} // may serve another purpose. more research needed.
@@ -35,10 +37,9 @@ const Home = () => {
       Play Sound:
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
       <div>
-        <div className="title-wordle">Wordle</div>
-        <Board />        
-      <Keyboard />
-      <Howtoplaymodal />
+        <Board />
+        <Keyboard />
+        <Howtoplaymodal />
         <div className="Settings">Testing settings</div>
       </div>
     </div>
