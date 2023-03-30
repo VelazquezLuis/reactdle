@@ -40,7 +40,6 @@ const Home = () => {
         <Board />
         <Keyboard />
         <Howtoplaymodal />
-        <div className="Settings">Testing settings</div>
       </div>
     </div>
   );
