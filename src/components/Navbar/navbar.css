@@ -1,16 +1,16 @@
 .navbar-css {
-    font-size: large;
-    margin: 1rem 2rem;
-    border-width: 1px 1px;
-    border-top-style: solid;
-    border-top-color: #d3d6da;
-    border-bottom-style: solid;
-    border-bottom-color: #d3d6da;
-    text-align: center;
+  margin: 1rem 2rem;
+  font-size: large;
+  border-width: 1px;
+  border-top-style: solid;
+  border-top-color: #d3d6da;
+  border-bottom-style: solid;
+  border-bottom-color: #d3d6da;
+  text-align: center;
 }
 
 .title-wordle {
-    font-size: 36px;
-    font-family: Tinos, serif;
-    font-weight: bold;
+  font-size: 36px;
+  font-family: Tinos, serif;
+  font-weight: bold;
 }
