@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <div className="boardBackground">
-      <Navbar className="navbarCss" />
+      <Navbar className="navbar-css" />
       Dark Theme:
       <ReactSwitch
         onChange={infoByContext.toggleTheme}

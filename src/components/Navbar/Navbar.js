@@ -7,7 +7,7 @@ import { GoThreeBars } from 'react-icons/go';
 
 const Navbar = () => {
   return (
-    <div className="navbarCss title-wordle">
+    <div className="navbar-css title-wordle">
       <div className="row">
         <div className="col-lg-2">
           <GoThreeBars />
