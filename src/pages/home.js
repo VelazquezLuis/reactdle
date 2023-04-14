@@ -33,7 +33,9 @@ const Home = () => {
         onChange={infoByContext.toggleTheme}
         checked={infoByContext.theme === 'dark'} // may serve another purpose. more research needed.
       />
-      <audio ref={audioRef} src={music} />
+      <audio ref={audioRef} src={music}>
+        <track kind="captions" srcLang="en" label="English captions" />
+      </audio>
       Play Sound:
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
       <div>
