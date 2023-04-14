@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useCallback, useState } from 'react';
+import ReactSwitch from 'react-switch';
 import Navbar from '../components/Navbar/Navbar';
 import Board from '../components/Board/Board';
-import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../App';
 import './home.css';
 import music from '../backgroundmusic.mp3';
@@ -33,7 +33,7 @@ const Home = () => {
         onChange={infoByContext.toggleTheme}
         checked={infoByContext.theme === 'dark'} // may serve another purpose. more research needed.
       />
-      <audio ref={audioRef} src={music}></audio>
+      <audio ref={audioRef} src={music} />
       Play Sound:
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
       <div>
