@@ -9,7 +9,7 @@ import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
-  const infoByContext = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
@@ -30,8 +30,8 @@ const Home = () => {
       <Navbar className="navbar-css" />
       Dark Theme:
       <ReactSwitch
-        onChange={infoByContext.toggleTheme}
-        checked={infoByContext.theme === 'dark'} // may serve another purpose. more research needed.
+        onChange={toggleTheme}
+        checked={theme === 'dark'} // may serve another purpose. more research needed.
       />
       <audio ref={audioRef} src={music}>
         <track kind="captions" srcLang="en" label="English captions" />
