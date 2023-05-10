@@ -9,7 +9,7 @@ function Howtoplaymodal(props) {
   const handleShow = () => setShow(true);
 
   return (
-    <div id="modal" className="boardBackground">
+    <div id="modal">
       <Button variant="primary" onClick={handleShow}>
         Launch demo modal
       </Button>
@@ -40,7 +40,7 @@ function Howtoplaymodal(props) {
                   <span className="badge light-badge">C</span>
                   <span className="badge light-badge">H</span>
                   <p>
-                    <strong>W</strong> is in the word and in the correct spot.
+                    <strong>L</strong> is in the word and in the correct spot.
                   </p>
                 </p>
               </div>
