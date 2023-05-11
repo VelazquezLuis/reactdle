@@ -1,14 +1,15 @@
-import React, { useContext, useRef, useCallback, useState } from "react";
-import Board from "../components/Board/Board";
-import ReactSwitch from "react-switch";
-import { ThemeContext } from "../App";
-import "./home.css";
-import music from "../backgroundmusic.mp3";
-import Keyboard from "../components/Keyboard/keyboard";
-import Howtoplaymodal from "../components/Modals/howtoplaymodal";
+import React, { useContext, useRef, useCallback, useState } from 'react';
+import ReactSwitch from 'react-switch';
+import Navbar from '../components/Navbar/Navbar';
+import Board from '../components/Board/Board';
+import { ThemeContext } from '../App';
+import './home.css';
+import music from '../backgroundmusic.mp3';
+import Keyboard from '../components/Keyboard/keyboard';
+import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
-  const infoByContext = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
@@ -26,21 +27,24 @@ const Home = () => {
 
   return (
     <div className="boardBackground">
-      Dark Theme:{" "}
+      <Navbar className="navbar-css" />
+      Dark Theme:
       <ReactSwitch
-        onChange={infoByContext.toggleTheme}
-        checked={infoByContext.theme === "dark"} // may serve another purpose. more research needed.
+        onChange={toggleTheme}
+        checked={theme === 'dark'} // may serve another purpose. more research needed.
       />
-      <audio ref={audioRef} src={music}></audio>
+      <audio ref={audioRef} src={music}>
+        <track kind="captions" srcLang="en" label="English captions" />
+      </audio>
       Play Sound:
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
-      <div className="title-wordle">Wordle</div>
-      <div className="board-wrapper">
-        <Board />
+      <div>
+        <div className="board-wrapper">
+          <Board />
+        </div>
+        <Keyboard />
+        <Howtoplaymodal />
       </div>
-      <Keyboard />
-      <Howtoplaymodal />
-      <div className="Settings">Testing settings</div>
     </div>
   );
 };

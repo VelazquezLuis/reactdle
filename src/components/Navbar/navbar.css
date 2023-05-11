@@ -1,0 +1,12 @@
+.navbar-css {
+  font-size: large;
+  border-width: 1px;
+  border-top-style: solid;
+  border-top-color: #d3d6da;
+  border-bottom-style: solid;
+  border-bottom-color: #d3d6da;
+  text-align: center;
+  font-size: 36px;
+  font-family: Tinos, serif;
+  font-weight: bold;
+}

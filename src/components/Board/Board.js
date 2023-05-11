@@ -6,7 +6,7 @@ const Board = () => {
   let tiles = [];
   let tileNumber = 0;
   for (let i = 0; i < 5; i++) {
-    let row = [];
+    const row = [];
     for (let j = 0; j < 5; j++) {
       row.push(
         <Tile key={tileNumber} tileNumber={tileNumber} row={j} col={i} />

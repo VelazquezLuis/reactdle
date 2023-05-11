@@ -1,9 +1,8 @@
-import { createContext, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/home";
-import PuzzleSolved from "./pages/puzzleSolved";
-import Keyboard from "./components/Keyboard/keyboard";
+import { createContext, useState, useMemo, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Home from './pages/home';
+import PuzzleSolved from './pages/puzzleSolved';
 import GetWordleWord from "./api/wordleWord";
 
 // import ReactSwitch from 'react-switch';
@@ -15,12 +14,17 @@ function App() {
 
   const [theme, setTheme] = useState("light");
 
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
+  const toggleTheme = useCallback(() => {
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({ theme, setTheme, toggleTheme }),
+    [theme, setTheme, toggleTheme]
+  );
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       <div id={theme}>
         <Router>
           <Routes>
@@ -28,7 +32,6 @@ function App() {
             <Route path="/puzzleSolved" element={<PuzzleSolved />} />
           </Routes>
         </Router>
-        {/* <ReactSwitch onChange={toggleTheme} checked={theme === 'dark'} /> */}
       </div>
     </ThemeContext.Provider>
   );

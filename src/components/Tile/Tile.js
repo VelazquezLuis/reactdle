@@ -1,5 +1,5 @@
-import React from "react";
-import "./tile.css";
+import React from 'react';
+import './tile.css';
 
 const Tile = (props) => {
   return <div className="tile">{props.tileNumber}</div>;
