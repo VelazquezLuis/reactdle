@@ -6,7 +6,7 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { GoThreeBars } from 'react-icons/go';
 
 const Navbar = () => (
-  <div className="navbar-css title-wordle">
+  <div className="navbar-css">
     <div className="row">
       <div className="col-lg-2">
         <GoThreeBars />

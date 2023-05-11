@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
 import PuzzleSolved from './pages/puzzleSolved';
-import GetWordleWord from "./api/wordleWord";
+import GetWordleWord from './api/wordleWord';
 
 // import ReactSwitch from 'react-switch';
 export const ThemeContext = createContext(null);
 
 function App() {
   const { wordleWord } = GetWordleWord();
-  console.log(">>>wordlWord", wordleWord);
+  console.log('>>>wordlWord', wordleWord);
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState('light');
 
   const toggleTheme = useCallback(() => {
     setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
