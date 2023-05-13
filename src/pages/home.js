@@ -39,7 +39,9 @@ const Home = () => {
       Play Sound:
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
       <div>
-        <Board />
+        <div className="board-wrapper">
+          <Board />
+        </div>
         <Keyboard />
         <Howtoplaymodal />
       </div>

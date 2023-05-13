@@ -1,3 +1,4 @@
-.settings {
-  text-align: right;
+.board-wrapper {
+  display: flex;
+  justify-content: center;
 }
