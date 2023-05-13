@@ -3,9 +3,9 @@ import Tile from '../Tile/Tile';
 import './board.css';
 
 const Board = () => {
-  let tiles = [];
+  const tiles = [];
   for (let i = 0; i < 5; i++) {
-    let row = [];
+    const row = [];
     for (let j = 0; j < 5; j++) {
       row.push(<Tile row={j} col={i} />);
     }
