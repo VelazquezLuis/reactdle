@@ -1,37 +1,37 @@
 .modal {
   margin-bottom: 0;
-  color: rgb(0, 0, 0);
+  color: #000000;
 }
 
 span.light-badge {
   color: #212529;
   background-color: #f8f9fa;
   border-style: solid;
-  border-color: #343a40
+  border-color: #343a40;
 }
 
 span.correct-badge {
   color: #fff;
   background-color: #13c156;
   border-style: solid;
-  border-color: #343a40
+  border-color: #343a40;
 }
 
 span.present-badge {
   color: #fff;
   background-color: #ceb723;
   border-style: solid;
-  border-color: #343a40
+  border-color: #343a40;
 }
 
 span.wrong-badge {
   color: #fff;
   background-color: #4a4b48;
   border-style: solid;
-  border-color: #343a40
+  border-color: #343a40;
 }
 
-span.badge{
+span.badge {
   border-style: solid;
-  border-color: #343a40
+  border-color: #343a40;
 }
