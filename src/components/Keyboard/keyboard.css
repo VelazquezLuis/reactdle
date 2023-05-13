@@ -44,7 +44,6 @@
   display: flex;
   flex-direction: column;
   height: 200px;
-  margin-top: 10%;
 }
 
 .keyboard-module-keyboard .enterdeletekey {
