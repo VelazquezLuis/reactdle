@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import "../Modals/howtoplaymodal.css";
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import './howtoplaymodal.css';
 
 function Howtoplaymodal(props) {
   const [show, setShow] = useState(true);
@@ -52,7 +52,7 @@ function Howtoplaymodal(props) {
                   <span className="badge light-badge">E</span>
                   <span className="badge light-badge">L</span>
                   <p>
-                    <strong>O</strong>  is in the word but in the wrong spot.
+                    <strong>O</strong> is in the word but in the wrong spot.
                   </p>
                 </p>
               </div>
