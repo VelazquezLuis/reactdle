@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './howtoplaymodal.css';
+import { ThemeContext } from '../../App';
 
 function Howtoplaymodal(props) {
-  const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const [show, setShow] = useState(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  const { show, handleClose, handleShow } = useContext(ThemeContext);
 
   return (
     <div id="modal">
