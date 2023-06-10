@@ -3,7 +3,7 @@ import Tile from '../Tile/Tile';
 import './board.css';
 
 const Board = () => {
-  let tiles = [];
+  const tiles = [];
   let tileNumber = 0;
   for (let i = 0; i < 5; i++) {
     const row = [];
