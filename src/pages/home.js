@@ -12,7 +12,15 @@ const Home = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-
+  const [grid, setGrid] = useState([
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+  ]);
+  const [row, setRow] = useState(0);
+  const [col, setCol] = useState(0);
   const play = useCallback(() => {
     setIsPlaying(true);
     // access the audio element's play method using audioRef.current.play()
@@ -40,9 +48,16 @@ const Home = () => {
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} />
       <div>
         <div className="board-wrapper">
-          <Board />
+          <Board grid={grid} />
         </div>
-        <Keyboard />
+        <Keyboard
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
         <Howtoplaymodal />
       </div>
     </div>

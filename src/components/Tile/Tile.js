@@ -2,10 +2,10 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import './tile.css';
 
-const Tile = ({ tileNumber }) => <div className="tile">{tileNumber}</div>;
+const Tile = ({ value }) => <div className="tile">{value}</div>;
 
 Tile.propTypes = {
-  tileNumber: PropTypes.number.isRequired,
+  value: PropTypes.string,
 };
 
 export default Tile;
