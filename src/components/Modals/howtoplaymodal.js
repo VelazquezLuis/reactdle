@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import "../Modals/howtoplaymodal.css";
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import './howtoplaymodal.css';
 
 function Howtoplaymodal(props) {
   const [show, setShow] = useState(true);
@@ -10,10 +10,6 @@ function Howtoplaymodal(props) {
 
   return (
     <div id="modal">
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>How To Play</Modal.Title>
@@ -33,7 +29,7 @@ function Howtoplaymodal(props) {
                 <strong>Examples</strong>
               </p>
               <div aria-label="LUNCH">
-                <p className="ml-1">
+                <div className="ml-1">
                   <span className="badge correct-badge">L</span>
                   <span className="badge light-badge">U</span>
                   <span className="badge light-badge">N</span>
@@ -42,22 +38,22 @@ function Howtoplaymodal(props) {
                   <p>
                     <strong>L</strong> is in the word and in the correct spot.
                   </p>
-                </p>
+                </div>
               </div>
               <div aria-label="LUNCH">
-                <p className="ml-1">
+                <div className="ml-1">
                   <span className="badge light-badge">T</span>
                   <span className="badge present-badge">O</span>
                   <span className="badge light-badge">W</span>
                   <span className="badge light-badge">E</span>
                   <span className="badge light-badge">L</span>
                   <p>
-                    <strong>O</strong>  is in the word but in the wrong spot.
+                    <strong>O</strong> is in the word but in the wrong spot.
                   </p>
-                </p>
+                </div>
               </div>
               <div aria-label="LUNCH">
-                <p className="ml-1">
+                <div className="ml-1">
                   <span className="badge light-badge">O</span>
                   <span className="badge light-badge">T</span>
                   <span className="badge light-badge">H</span>
@@ -67,7 +63,7 @@ function Howtoplaymodal(props) {
                     <strong>R</strong> is not in the word in any spot.
                   </p>
                   <p>A new puzzle is released daily.</p>
-                </p>
+                </div>
               </div>
             </div>
           </div>
