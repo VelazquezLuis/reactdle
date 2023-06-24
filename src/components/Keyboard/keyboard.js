@@ -1,9 +1,9 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
 import './keyboard.css';
 
-const Keyboard = () => {
-  // setLetterSelected();
+const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const enter = {
@@ -36,12 +36,46 @@ const Keyboard = () => {
         role="group"
         aria-label="Keyboard"
       >
-        <KeyboardRow values={row1} />
-        <KeyboardRow values={row2} spacer />
-        <KeyboardRow values={row3} />
+        <KeyboardRow
+          values={row1}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
+        <KeyboardRow
+          values={row2}
+          spacer
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
+        <KeyboardRow
+          values={row3}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
       </div>
     </div>
   );
+};
+
+Keyboard.propTypes = {
+  row: PropTypes.number,
+  setRow: PropTypes.func,
+  col: PropTypes.number,
+  setCol: PropTypes.func,
+  grid: PropTypes.array,
+  setGrid: PropTypes.func,
 };
 
 export default Keyboard;
