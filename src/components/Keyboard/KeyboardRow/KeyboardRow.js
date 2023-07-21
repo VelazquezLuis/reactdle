@@ -29,7 +29,17 @@ const KeyboardRow = ({
     }
     if (typeof value === 'object') {
       return (
-        <Key key={Math.random()} classValue={value.class} value={value.value} />
+        <Key
+          key={Math.random()}
+          classValue={value.class}
+          value={value.value}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
       );
     }
     return null;
