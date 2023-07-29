@@ -1,4 +1,10 @@
-import React, { useContext, useState, useCallback, useRef } from 'react';
+import React, {
+  useContext,
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+} from 'react';
 import './navbar.css';
 
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
@@ -29,6 +35,10 @@ const Navbar = () => {
     audioRef.current.pause();
   }
 
+  useEffect(() => {
+    console.log('Should only run once');
+  }, []);
+
   return (
     <div className="navbar-css">
       <div className="row">
@@ -40,6 +50,9 @@ const Navbar = () => {
           <audio ref={audioRef} src={music}>
             <track kind="captions" srcLang="en" label="English captions" />
           </audio>
+
+          {/* // Below code handles sound icon change */}
+
           {sound ? (
             <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
           ) : (
