@@ -2,14 +2,44 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import Key from './Key/Key';
 
-const KeyboardRow = ({ values, spacer }) => {
+const KeyboardRow = ({
+  values,
+  spacer,
+  row,
+  setRow,
+  col,
+  setCol,
+  grid,
+  setGrid,
+}) => {
   const keyboardRow = values.map((value) => {
     if (typeof value === 'string') {
-      return <Key key={value} value={value} />;
+      return (
+        <Key
+          key={value}
+          value={value}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
+      );
     }
     if (typeof value === 'object') {
       return (
-        <Key key={Math.random()} classValue={value.class} value={value.value} />
+        <Key
+          key={Math.random()}
+          classValue={value.class}
+          value={value.value}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
       );
     }
     return null;
@@ -28,6 +58,12 @@ KeyboardRow.propTypes = {
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ).isRequired,
   spacer: PropTypes.bool,
+  row: PropTypes.number,
+  setRow: PropTypes.func,
+  col: PropTypes.number,
+  setCol: PropTypes.func,
+  grid: PropTypes.array,
+  setGrid: PropTypes.func,
 };
 
 export default KeyboardRow;

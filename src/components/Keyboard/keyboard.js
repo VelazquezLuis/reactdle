@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
 import './keyboard.css';
 
-const Keyboard = () => {
-  // setLetterSelected();
+const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const enter = {
-    class: 'enterdeletekey',
+    class: 'enterdeletekey enter',
     value: 'enter',
   };
   const del = {
-    class: 'enterdeletekey',
+    class: 'enterdeletekey delete',
     value: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +29,55 @@ const Keyboard = () => {
     ),
   };
   const row3 = [enter, 'z', 'x', 'c', 'v', 'b', 'n', 'm', del];
+
+  const addLetter = (value) => {
+    if (row < 5 && col < 5) {
+      let newRow = row;
+      let newCol = col + 1;
+      if (newCol > 4) {
+        newRow += 1;
+        newCol = 0;
+      }
+
+      setRow(newRow);
+      setCol(newCol);
+
+      grid[row][col] = value;
+      setGrid(grid);
+    }
+  };
+
+  const removeLetter = () => {
+    if (row > 0 || col > 0) {
+      let newRow = row;
+      let newCol = col - 1;
+      if (newCol < 0) {
+        newRow -= 1;
+        newCol = 4;
+      }
+      setRow(newRow);
+      setCol(newCol);
+
+      grid[newRow][newCol] = '';
+      setGrid(grid);
+    }
+  };
+
+  const handleWindowResize = (e) => {
+    if (e.key === 'Backspace') {
+      removeLetter();
+    } else {
+      addLetter(e.key);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleWindowResize);
+    return () => {
+      window.removeEventListener('keydown', handleWindowResize);
+    };
+  });
+
   return (
     <div>
       <div
@@ -36,12 +85,46 @@ const Keyboard = () => {
         role="group"
         aria-label="Keyboard"
       >
-        <KeyboardRow values={row1} />
-        <KeyboardRow values={row2} spacer />
-        <KeyboardRow values={row3} />
+        <KeyboardRow
+          values={row1}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
+        <KeyboardRow
+          values={row2}
+          spacer
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
+        <KeyboardRow
+          values={row3}
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
       </div>
     </div>
   );
+};
+
+Keyboard.propTypes = {
+  row: PropTypes.number,
+  setRow: PropTypes.func,
+  col: PropTypes.number,
+  setCol: PropTypes.func,
+  grid: PropTypes.array,
+  setGrid: PropTypes.func,
 };
 
 export default Keyboard;

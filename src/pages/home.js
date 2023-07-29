@@ -10,20 +10,15 @@ import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // const audioRef = useRef(null);
-
-  // const play = useCallback(() => {
-  //   setIsPlaying(true);
-  //   // access the audio element's play method using audioRef.current.play()
-  //   audioRef.current.play();
-  // }, [audioRef]);
-
-  // const pause = useCallback(() => {
-  //   setIsPlaying(false);
-  //   // access the audio element's pause method using audioRef.current.pause()
-  //   audioRef.current.pause();
-  // }, [audioRef]);
+  const [grid, setGrid] = useState([
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+  ]);
+  const [row, setRow] = useState(0);
+  const [col, setCol] = useState(0);
 
   return (
     <div className="boardBackground">
@@ -40,9 +35,16 @@ const Home = () => {
       <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} /> */}
       <div>
         <div className="board-wrapper">
-          <Board />
+          <Board grid={grid} />
         </div>
-        <Keyboard />
+        <Keyboard
+          row={row}
+          setRow={setRow}
+          col={col}
+          setCol={setCol}
+          grid={grid}
+          setGrid={setGrid}
+        />
         <Howtoplaymodal />
       </div>
     </div>
