@@ -40,8 +40,13 @@ const Navbar = () => {
           <audio ref={audioRef} src={music}>
             <track kind="captions" srcLang="en" label="English captions" />
           </audio>
-          <HiOutlineSpeakerWave onClick={handlePlaySoundOn} />
-          <HiOutlineSpeakerXMark onClick={handlePlaySoundOff} />
+          {sound ? (
+            <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+          ) : (
+            <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+          )}
+          {/* <HiOutlineSpeakerWave onClick={handlePlaySoundOn} />
+          <HiOutlineSpeakerXMark onClick={handlePlaySoundOff} /> */}
           <AiOutlineQuestionCircle onClick={handleShow} />
           <span> </span>
           <BsFillGearFill onClick={handleShow} />
