@@ -64,10 +64,27 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   };
 
   const handleWindowResize = (e) => {
-    if (e.key === 'Backspace') {
-      removeLetter();
-    } else {
-      addLetter(e.key);
+    console.log('>>>e.key', e);
+    if (
+      (e.keyCode >= 65 && e.keyCode <= 90) ||
+      e.keyCode === 8 ||
+      e.keyCode === 13
+    ) {
+      if (e.key === 'Backspace') {
+        removeLetter();
+      } else if (e.key === 'Enter' && row > 0 && col === 0) {
+        /* TODO: Compare against Word of Day before moving on */
+        /* Things to consider: */
+        /* Enter only works if row is filled so words are compared */
+        /* Entered word must validate if it is an actual word */
+        /* No backspace to previous line */
+        /* Also think about virtual keyboard implementation of this logic */
+        console.log('>>>grid', grid);
+        console.log('>>>row', row);
+        console.log('>>>col', col);
+      } else if (e.keyCode >= 65 && e.keyCode <= 90) {
+        addLetter(e.key.toLowerCase());
+      }
     }
   };
 
