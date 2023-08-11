@@ -14,11 +14,13 @@ import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
+import { number } from 'prop-types';
 
 const Navbar = () => {
   const { show, handleClose, handleShow } = useContext(ThemeContext);
 
   const audioRef = useRef(null);
+
   ////////////////
 
   const [sound, setSound] = useState();
@@ -37,6 +39,7 @@ const Navbar = () => {
 
   useEffect(() => {
     console.log('Should only run once');
+    handlePlaySoundOn();
   }, []);
 
   return (
