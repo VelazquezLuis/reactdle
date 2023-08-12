@@ -14,13 +14,17 @@ function App() {
 
   const [theme, setTheme] = useState('light');
 
+  const [show, setShow] = useState(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const toggleTheme = useCallback(() => {
     setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
   }, []);
 
   const contextValue = useMemo(
-    () => ({ theme, setTheme, toggleTheme }),
-    [theme, setTheme, toggleTheme]
+    () => ({ theme, setTheme, toggleTheme, show, handleClose, handleShow }),
+    [theme, setTheme, toggleTheme, show]
   );
 
   return (

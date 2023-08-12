@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import "../Modals/howtoplaymodal.css";
+import React, { useState, useContext } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import './howtoplaymodal.css';
+import { ThemeContext } from '../../App';
 
 function Howtoplaymodal(props) {
-  const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const [show, setShow] = useState(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  const { show, handleClose, handleShow } = useContext(ThemeContext);
 
   return (
     <div id="modal">
@@ -52,7 +54,7 @@ function Howtoplaymodal(props) {
                   <span className="badge light-badge">E</span>
                   <span className="badge light-badge">L</span>
                   <p>
-                    <strong>O</strong>  is in the word but in the wrong spot.
+                    <strong>O</strong> is in the word but in the wrong spot.
                   </p>
                 </p>
               </div>
