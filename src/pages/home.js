@@ -8,7 +8,7 @@ import music from '../backgroundmusic.mp3';
 import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
-const Home = ({wordleWord}) => {
+const Home = ({ wordleWord }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [win, setWin] = useState(false);
   const [grid, setGrid] = useState([

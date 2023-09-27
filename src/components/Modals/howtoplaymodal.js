@@ -35,7 +35,7 @@ function Howtoplaymodal(props) {
                 <strong>Examples:</strong>
               </p>
 
-              <div className='my-3'>
+              <div className="my-3">
                 <div>
                   <span className="badge correct-badge">L</span>
                   <span className="badge light-badge">U</span>
@@ -46,7 +46,7 @@ function Howtoplaymodal(props) {
                 <strong>L</strong> is in the word and in the correct spot.
               </div>
 
-              <div className='my-3'>
+              <div className="my-3">
                 <div>
                   <span className="badge light-badge">T</span>
                   <span className="badge present-badge">O</span>
@@ -57,7 +57,7 @@ function Howtoplaymodal(props) {
                 <strong>O</strong> is in the word but in the wrong spot.
               </div>
 
-              <div className='my-3'>
+              <div className="my-3">
                 <div>
                   <span className="badge light-badge">O</span>
                   <span className="badge light-badge">T</span>

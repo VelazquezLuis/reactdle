@@ -3,7 +3,17 @@ import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
 import './keyboard.css';
 
-const Keyboard = ({ row, setRow, col, setCol, grid, setGrid, wordleWord, win, setWin }) => {
+const Keyboard = ({
+  row,
+  setRow,
+  col,
+  setCol,
+  grid,
+  setGrid,
+  wordleWord,
+  win,
+  setWin,
+}) => {
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const enter = {
@@ -53,7 +63,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid, wordleWord, win, se
   const removeLetter = () => {
     if (row > 0 || col > 0) {
       let newCol = col - 1;
-      if(newCol === -1) {
+      if (newCol === -1) {
         newCol = 0;
       }
       setCol(newCol);
@@ -66,8 +76,10 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid, wordleWord, win, se
   const handleWindowResize = (e) => {
     if (
       ((e.keyCode >= 65 && e.keyCode <= 90) ||
-      e.keyCode === 8 ||
-      e.keyCode === 13 ) && !win && row < 5
+        e.keyCode === 8 ||
+        e.keyCode === 13) &&
+      !win &&
+      row < 5
     ) {
       if (e.key === 'Backspace') {
         removeLetter();
@@ -82,7 +94,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid, wordleWord, win, se
         // console.log('>>>grid', grid);
         // console.log('>>>row', row);
         // console.log('>>>col', col);
-        if(grid[row].join('') === wordleWord) {
+        if (grid[row].join('') === wordleWord) {
           console.info('>>>YOU WIN!!! 🎉');
           setWin(true);
           //TODO: TURN ALL LETTERS GREEN
@@ -93,7 +105,6 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid, wordleWord, win, se
           setRow(newRow);
           setCol(newCol);
         }
-
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
         addLetter(e.key.toLowerCase());
       }
