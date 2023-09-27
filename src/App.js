@@ -10,7 +10,7 @@ export const ThemeContext = createContext(null);
 
 function App() {
   let { wordleWord } = GetWordleWord();
-  if(Array.isArray(wordleWord)) {
+  if (Array.isArray(wordleWord)) {
     wordleWord = wordleWord[0];
   }
   console.log('>>>wordlWord', wordleWord);
