@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
 import './keyboard.css';
 
-const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
+const Keyboard = ({ row, setRow, col, setCol, grid, setGrid, wordleWord, win, setWin }) => {
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const enter = {
@@ -31,13 +31,16 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   const row3 = [enter, 'z', 'x', 'c', 'v', 'b', 'n', 'm', del];
 
   const addLetter = (value) => {
+    // console.log(">>>addLetter", row + " " + col);
     if (row < 5 && col < 5) {
       let newRow = row;
       let newCol = col + 1;
-      if (newCol > 4) {
-        newRow += 1;
-        newCol = 0;
-      }
+
+      // KEEP THIS TO REMEMBER WHAT WAS DELETED
+      // if (newCol > 4) {
+      //   newRow += 1;
+      //   newCol = 0;
+      // }
 
       setRow(newRow);
       setCol(newCol);
@@ -49,39 +52,48 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
 
   const removeLetter = () => {
     if (row > 0 || col > 0) {
-      let newRow = row;
       let newCol = col - 1;
-      if (newCol < 0) {
-        newRow -= 1;
-        newCol = 4;
+      if(newCol === -1) {
+        newCol = 0;
       }
-      setRow(newRow);
       setCol(newCol);
 
-      grid[newRow][newCol] = '';
+      grid[row][newCol] = '';
       setGrid(grid);
     }
   };
 
   const handleWindowResize = (e) => {
-    console.log('>>>e.key', e);
     if (
-      (e.keyCode >= 65 && e.keyCode <= 90) ||
+      ((e.keyCode >= 65 && e.keyCode <= 90) ||
       e.keyCode === 8 ||
-      e.keyCode === 13
+      e.keyCode === 13 ) && !win && row < 5
     ) {
       if (e.key === 'Backspace') {
         removeLetter();
-      } else if (e.key === 'Enter' && row > 0 && col === 0) {
+      } else if (e.key === 'Enter' && row >= 0 && col >= 5) {
         /* TODO: Compare against Word of Day before moving on */
         /* Things to consider: */
         /* Enter only works if row is filled so words are compared */
         /* Entered word must validate if it is an actual word */
         /* No backspace to previous line */
         /* Also think about virtual keyboard implementation of this logic */
-        console.log('>>>grid', grid);
-        console.log('>>>row', row);
-        console.log('>>>col', col);
+        /* Need game done/game over condition, which prevents user input */
+        // console.log('>>>grid', grid);
+        // console.log('>>>row', row);
+        // console.log('>>>col', col);
+        if(grid[row].join('') === wordleWord) {
+          console.info('>>>YOU WIN!!! 🎉');
+          setWin(true);
+          //TODO: TURN ALL LETTERS GREEN
+        } else {
+          //TODO: COMPARE TO GET GREEN/YELLOW LETTERS
+          let newRow = row + 1;
+          let newCol = 0;
+          setRow(newRow);
+          setCol(newCol);
+        }
+
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
         addLetter(e.key.toLowerCase());
       }

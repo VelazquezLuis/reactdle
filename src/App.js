@@ -9,7 +9,10 @@ import GetWordleWord from './api/wordleWord';
 export const ThemeContext = createContext(null);
 
 function App() {
-  const { wordleWord } = GetWordleWord();
+  let { wordleWord } = GetWordleWord();
+  if(Array.isArray(wordleWord)) {
+    wordleWord = wordleWord[0];
+  }
   console.log('>>>wordlWord', wordleWord);
 
   const [theme, setTheme] = useState('light');
@@ -32,7 +35,7 @@ function App() {
       <div id={theme}>
         <Router>
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" exact element={<Home wordleWord={wordleWord} />} />
             <Route path="/puzzleSolved" element={<PuzzleSolved />} />
           </Routes>
         </Router>

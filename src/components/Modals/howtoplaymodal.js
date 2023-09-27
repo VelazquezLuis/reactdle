@@ -30,47 +30,45 @@ function Howtoplaymodal(props) {
                 was to the word.
               </li>
             </ul>
-            <div className=" ">
+            <div>
               <p>
-                <strong>Examples</strong>
+                <strong>Examples:</strong>
               </p>
-              <div aria-label="LUNCH">
-                <p className="ml-1">
+
+              <div className='my-3'>
+                <div>
                   <span className="badge correct-badge">L</span>
                   <span className="badge light-badge">U</span>
                   <span className="badge light-badge">N</span>
                   <span className="badge light-badge">C</span>
                   <span className="badge light-badge">H</span>
-                  <p>
-                    <strong>L</strong> is in the word and in the correct spot.
-                  </p>
-                </p>
+                </div>
+                <strong>L</strong> is in the word and in the correct spot.
               </div>
-              <div aria-label="LUNCH">
-                <p className="ml-1">
+
+              <div className='my-3'>
+                <div>
                   <span className="badge light-badge">T</span>
                   <span className="badge present-badge">O</span>
                   <span className="badge light-badge">W</span>
                   <span className="badge light-badge">E</span>
                   <span className="badge light-badge">L</span>
-                  <p>
-                    <strong>O</strong> is in the word but in the wrong spot.
-                  </p>
-                </p>
+                </div>
+                <strong>O</strong> is in the word but in the wrong spot.
               </div>
-              <div aria-label="LUNCH">
-                <p className="ml-1">
+
+              <div className='my-3'>
+                <div>
                   <span className="badge light-badge">O</span>
                   <span className="badge light-badge">T</span>
                   <span className="badge light-badge">H</span>
                   <span className="badge light-badge">E</span>
                   <span className="badge wrong-badge">R</span>
-                  <p>
-                    <strong>R</strong> is not in the word in any spot.
-                  </p>
-                  <p>A new puzzle is released daily.</p>
-                </p>
+                </div>
+                <strong>R</strong> is not in the word in any spot.
               </div>
+
+              <p>A new puzzle is released daily.</p>
             </div>
           </div>
         </Modal.Body>
