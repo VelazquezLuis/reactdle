@@ -9,3 +9,16 @@
   font-family: Tinos, serif;
   font-weight: bold;
 }
+
+.speaker-animation-css {
+  size: 1px;
+  width: 3px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  /* Align items vertically in the center */
+  gap: 20px;
+  /* Adjust the gap between icons */
+}
