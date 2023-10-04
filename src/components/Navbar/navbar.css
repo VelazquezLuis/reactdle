@@ -18,7 +18,5 @@
 .icon-container {
   display: flex;
   align-items: center;
-  /* Align items vertically in the center */
   gap: 20px;
-  /* Adjust the gap between icons */
 }

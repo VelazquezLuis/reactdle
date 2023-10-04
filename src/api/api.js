@@ -6,6 +6,11 @@ const useFetch = (url) => {
   const { loading, error, data } = useQuery('repoData', () =>
     fetch(url).then((res) => res.json())
   );
+
+  // if (loading) {
+  //   console.log(loading);
+  // }
+
   // const [data, setData] = useState(null);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(null);
