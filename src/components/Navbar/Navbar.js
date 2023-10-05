@@ -1,16 +1,5 @@
-import React, {
-  useContext,
-  useState,
-  useCallback,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import './navbar.css';
-
-import Lottie from 'lottie-react';
-
-import speakerAnimation from './speakerAnimation.json';
-import speakerAnimationGif from './speakerAnimationGif.gif';
 
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { BsFillGearFill } from 'react-icons/bs';
@@ -64,16 +53,9 @@ const Navbar = () => {
             {sound ? (
               <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
             ) : (
-              // <Lottie
-              //   animationData={speakerAnimation}
-              //   onClick={handlePlaySoundOff}
-              //   style={{ width: '50px' }}
-              // />
               <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
             )}
 
-            {/* <HiOutlineSpeakerWave onClick={handlePlaySoundOn} />
-          <HiOutlineSpeakerXMark onClick={handlePlaySoundOff} /> */}
             <AiOutlineQuestionCircle onClick={handleShow} />
             <BsFillGearFill onClick={handleShow} />
           </div>
