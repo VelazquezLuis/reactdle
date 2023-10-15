@@ -6,7 +6,7 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { GoThreeBars } from 'react-icons/go';
 import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
-import music from '../../backgroundmusic.mp3';
+import music from '../../backgroundmusic.mp3';  
 import { ThemeContext } from '../../App';
 import { number } from 'prop-types';
 

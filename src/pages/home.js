@@ -8,9 +8,9 @@ import music from '../backgroundmusic.mp3';
 import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
-const Home = ({ wordleWord }) => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const [win, setWin] = useState(false);
+const Home = () => {
+  const { theme, toggleTheme, individualWord } = useContext(ThemeContext);
+  // const [win, setWin] = useState(false); //  moved to App.js
   const [grid, setGrid] = useState([
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -45,9 +45,10 @@ const Home = ({ wordleWord }) => {
           setCol={setCol}
           grid={grid}
           setGrid={setGrid}
-          wordleWord={wordleWord}
-          win={win}
-          setWin={setWin}
+          // wordleWord={wordleWord} // moved through context ***
+          // win={win}
+          // setWin={setWin}
+          individualWord={individualWord}
         />
         <Howtoplaymodal />
       </div>

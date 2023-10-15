@@ -2,11 +2,12 @@ import useFetch from './api';
 
 const GetWordleWord = () => {
   const {
-    data: wordleWord,
+    data: wordleWordDB,
     loading,
     error,
-  } = useFetch('https://random-word-api.herokuapp.com/word?length=5');
-  return { wordleWord, loading, error };
+  } = useFetch('https://api.datamuse.com/words?sp=?????');
+
+  return { wordleWordDB, loading, error };
 };
 
 export default GetWordleWord;
