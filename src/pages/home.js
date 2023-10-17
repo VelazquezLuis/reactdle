@@ -1,10 +1,9 @@
-import React, { useContext, useRef, useCallback, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ReactSwitch from 'react-switch';
 import Navbar from '../components/Navbar/Navbar';
 import Board from '../components/Board/Board';
 import { ThemeContext } from '../App';
 import './home.css';
-import music from '../backgroundmusic.mp3';
 import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
