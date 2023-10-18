@@ -1,4 +1,10 @@
-import { createContext, useState, useMemo, useCallback } from 'react';
+import {
+  createContext,
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
@@ -9,16 +15,26 @@ import GetWordleWord from './api/wordleWord';
 export const ThemeContext = createContext(null);
 
 function App() {
+  const [count, setCount] = useState(0);
   const [win, setWin] = useState(false);
-
   let { wordleWordDB } = GetWordleWord();
-
   let singleword;
 
   if (Array.isArray(wordleWordDB)) {
-    singleword = wordleWordDB[0].word;
+    singleword = wordleWordDB[count].word;
     console.log(singleword);
   }
+  console.log('before addition count is: ', count);
+  useEffect(() => {
+    console.log('App.js useEffect has been triggered.');
+
+    if (win) {
+      setCount((count) => count + 1);
+      setWin(false);
+    }
+
+    console.log('after addition count is: ', count);
+  }, [win, count]);
 
   const [theme, setTheme] = useState('light');
 

@@ -22,7 +22,7 @@ const Navbar = () => {
   const handlePlaySoundOff = () => setSound(false);
 
   if (sound === true) {
-    console.log('sound is set to TRUE');
+    // console.log('sound is set to TRUE');
     audioRef.current.play();
   }
   if (sound === false) {
