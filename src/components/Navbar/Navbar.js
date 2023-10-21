@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useState,
-  useCallback,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import './navbar.css';
 
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
@@ -14,10 +8,9 @@ import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
-import { number } from 'prop-types';
 
 const Navbar = () => {
-  const { show, handleClose, handleShow } = useContext(ThemeContext);
+  const { handleShow } = useContext(ThemeContext);
 
   const audioRef = useRef(null);
 
@@ -29,7 +22,7 @@ const Navbar = () => {
   const handlePlaySoundOff = () => setSound(false);
 
   if (sound === true) {
-    console.log('sound is set to TRUE');
+    // console.log('sound is set to TRUE');
     audioRef.current.play();
   }
   if (sound === false) {
@@ -48,24 +41,23 @@ const Navbar = () => {
         <div className="col-lg-2">
           <GoThreeBars />
         </div>
-        <div className="col-lg-8">Wordle</div>
-        <div className="col-lg-2 navrside">
+        <div className="col-lg-3">Wordle</div>
+        <div className="col-lg-7 navrside">
           <audio ref={audioRef} src={music}>
             <track kind="captions" srcLang="en" label="English captions" />
           </audio>
 
           {/* // Below code handles sound icon change */}
+          <div className="icon-container">
+            {sound ? (
+              <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+            ) : (
+              <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+            )}
 
-          {sound ? (
-            <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-          ) : (
-            <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-          )}
-          {/* <HiOutlineSpeakerWave onClick={handlePlaySoundOn} />
-          <HiOutlineSpeakerXMark onClick={handlePlaySoundOff} /> */}
-          <AiOutlineQuestionCircle onClick={handleShow} />
-          <span> </span>
-          <BsFillGearFill onClick={handleShow} />
+            <AiOutlineQuestionCircle onClick={handleShow} />
+            <BsFillGearFill onClick={handleShow} />
+          </div>
         </div>
       </div>
     </div>

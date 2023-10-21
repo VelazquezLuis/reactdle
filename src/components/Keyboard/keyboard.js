@@ -1,25 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
+import { ThemeContext } from '../../App';
 import './keyboard.css';
 
-const Keyboard = ({
-  row,
-  setRow,
-  col,
-  setCol,
-  grid,
-  setGrid,
-  wordleWord,
-  win,
-  setWin,
-}) => {
+const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
+  const { singleword, setWin, win } = useContext(ThemeContext);
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const enter = {
     class: 'enterdeletekey enter',
     value: 'enter',
   };
+  console.log('Inside keyboard.js - singleword is: ', singleword);
   const del = {
     class: 'enterdeletekey delete',
     value: (
@@ -94,7 +87,7 @@ const Keyboard = ({
         // console.log('>>>grid', grid);
         // console.log('>>>row', row);
         // console.log('>>>col', col);
-        if (grid[row].join('') === wordleWord) {
+        if (grid[row].join('') === singleword) {
           console.info('>>>YOU WIN!!! 🎉');
           setWin(true);
           //TODO: TURN ALL LETTERS GREEN

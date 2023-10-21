@@ -1,16 +1,15 @@
-import React, { useContext, useRef, useCallback, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ReactSwitch from 'react-switch';
 import Navbar from '../components/Navbar/Navbar';
 import Board from '../components/Board/Board';
 import { ThemeContext } from '../App';
 import './home.css';
-import music from '../backgroundmusic.mp3';
 import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
-const Home = ({ wordleWord }) => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  const [win, setWin] = useState(false);
+const Home = () => {
+  const { theme, toggleTheme, individualWord } = useContext(ThemeContext);
+  // const [win, setWin] = useState(false); //  moved to App.js
   const [grid, setGrid] = useState([
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -45,9 +44,10 @@ const Home = ({ wordleWord }) => {
           setCol={setCol}
           grid={grid}
           setGrid={setGrid}
-          wordleWord={wordleWord}
-          win={win}
-          setWin={setWin}
+          // wordleWord={wordleWord} // moved through context ***
+          // win={win}
+          // setWin={setWin}
+          individualWord={individualWord}
         />
         <Howtoplaymodal />
       </div>

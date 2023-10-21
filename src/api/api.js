@@ -1,25 +1,39 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useQuery } from 'react-query';
 
 const useFetch = (url) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const {
+    isLoading: loading,
+    error,
+    data,
+  } = useQuery('repoData', async () => {
+    const response = await axios.get(url);
+    return response.data;
+  });
 
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get(url)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [url]);
+  // if (loading) {
+  //   console.log(loading);
+  // }
+
+  // const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios
+  //     .get(url)
+  //     .then((response) => {
+  //       setData(response.data);
+  //     })
+  //     .catch((err) => {
+  //       setError(err);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, [url]);
 
   return { data, loading, error };
 };

@@ -1,4 +1,10 @@
-import { createContext, useState, useMemo, useCallback } from 'react';
+import {
+  createContext,
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
@@ -9,11 +15,26 @@ import GetWordleWord from './api/wordleWord';
 export const ThemeContext = createContext(null);
 
 function App() {
-  let { wordleWord } = GetWordleWord();
-  if (Array.isArray(wordleWord)) {
-    wordleWord = wordleWord[0];
+  const [count, setCount] = useState(0);
+  const [win, setWin] = useState(false);
+  let { wordleWordDB } = GetWordleWord();
+  let singleword;
+
+  if (Array.isArray(wordleWordDB)) {
+    singleword = wordleWordDB[count].word;
+    console.log(singleword);
   }
-  console.log('>>>wordlWord', wordleWord);
+  console.log('before addition count is: ', count);
+  useEffect(() => {
+    console.log('App.js useEffect has been triggered.');
+
+    if (win) {
+      setCount((count) => count + 1);
+      setWin(false);
+    }
+
+    console.log('after addition count is: ', count);
+  }, [win, count]);
 
   const [theme, setTheme] = useState('light');
 
@@ -26,8 +47,17 @@ function App() {
   }, []);
 
   const contextValue = useMemo(
-    () => ({ theme, setTheme, toggleTheme, show, handleClose, handleShow }),
-    [theme, setTheme, toggleTheme, show]
+    () => ({
+      theme,
+      setTheme,
+      toggleTheme,
+      show,
+      handleClose,
+      handleShow,
+      singleword,
+      setWin,
+    }),
+    [theme, setTheme, toggleTheme, show, singleword, setWin]
   );
 
   return (
@@ -35,7 +65,7 @@ function App() {
       <div id={theme}>
         <Router>
           <Routes>
-            <Route path="/" exact element={<Home wordleWord={wordleWord} />} />
+            <Route path="/" exact element={<Home />} />
             <Route path="/puzzleSolved" element={<PuzzleSolved />} />
           </Routes>
         </Router>
