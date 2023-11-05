@@ -59,6 +59,14 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
     }
   };
 
+  const greenifyLetters = () => {
+    for (let i = 0; i < 5; i++) {
+      if (grid[row][i].value === singleword[i]) {
+        grid[row][i].color = 'green';
+      }
+    }
+  };
+
   const handleWindowResize = (e) => {
     if (
       ((e.keyCode >= 65 && e.keyCode <= 90) ||
@@ -76,12 +84,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
         }, '');
         if (enteredWord === singleword) {
           console.info('>>>YOU WIN!!! 🎉');
-
-          for (let i = 0; i < 5; i++) {
-            if (grid[row][i].value === singleword[i]) {
-              grid[row][i].color = 'green';
-            }
-          }
+          greenifyLetters();
           setGrid(grid);
           setWin(true);
         } else {
@@ -90,11 +93,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
           let newCol = 0;
           setRow(newRow);
           setCol(newCol);
-          for (let i = 0; i < 5; i++) {
-            if (grid[row][i].value === singleword[i]) {
-              grid[row][i].color = 'green';
-            }
-          }
+          greenifyLetters();
           setGrid(grid);
         }
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
