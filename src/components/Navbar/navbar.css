@@ -10,12 +10,7 @@
   font-weight: bold;
 }
 
-.speaker-animation-css {
-  size: 1px;
-  width: 3px;
-}
-
-.icon-container {
+.nav-icons-right-side {
   display: flex;
   align-items: center;
   gap: 20px;

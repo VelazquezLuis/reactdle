@@ -38,28 +38,27 @@ const Navbar = () => {
   return (
     <div className="navbar-css">
       <div className="row">
-        <div className="col-lg-2">
+        <div className="col-lg-3">
           <GoThreeBars />
         </div>
-        <div className="col-lg-3">Wordle</div>
-        <div className="col-lg-7 navrside">
+        <div className="col-lg-6">Wordle</div>
+        <div className="col-lg-3 nav-icons-right-side">
           <audio ref={audioRef} src={music}>
             <track kind="captions" srcLang="en" label="English captions" />
           </audio>
 
           {/* // Below code handles sound icon change */}
-          <div className="icon-container">
-            {!sound ? (
-              <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-            ) : (
-              // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-              // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-              <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-            )}
 
-            <AiOutlineQuestionCircle onClick={handleShow} />
-            <BsFillGearFill onClick={handleShow} />
-          </div>
+          {!sound ? (
+            <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+          ) : (
+            // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+            // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+            <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+          )}
+
+          <AiOutlineQuestionCircle onClick={handleShow} />
+          <BsFillGearFill onClick={handleShow} />
         </div>
       </div>
     </div>
