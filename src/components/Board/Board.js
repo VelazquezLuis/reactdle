@@ -9,7 +9,15 @@ const Board = ({ grid }) => {
   for (let i = 0; i < grid[0].length; i += 1) {
     const row = [];
     for (let j = 0; j < grid[0].length; j += 1) {
-      row.push(<Tile key={tileNumber} row={i} col={j} value={grid[i][j]} />);
+      row.push(
+        <Tile
+          key={tileNumber}
+          row={i}
+          col={j}
+          value={grid[i][j].value}
+          color={grid[i][j].color || 'black'}
+        />
+      );
       tileNumber += 1;
     }
     tiles.push(
