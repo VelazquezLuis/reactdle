@@ -32,7 +32,7 @@ const Navbar = () => {
 
   useEffect(() => {
     console.log('Should only run once');
-    handlePlaySoundOn();
+    handlePlaySoundOff();
   }, []);
 
   return (
@@ -49,10 +49,12 @@ const Navbar = () => {
 
           {/* // Below code handles sound icon change */}
           <div className="icon-container">
-            {sound ? (
-              <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-            ) : (
+            {!sound ? (
               <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+            ) : (
+              // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+              // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+              <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
             )}
 
             <AiOutlineQuestionCircle onClick={handleShow} />
