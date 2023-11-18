@@ -60,9 +60,24 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   };
 
   const greenifyLetters = () => {
+    let word = singleword.split('');
     for (let i = 0; i < 5; i++) {
-      if (grid[row][i].value === singleword[i]) {
+      if (grid[row][i].value === word[i]) {
         grid[row][i].color = 'green';
+        word[i] = '_';
+      }
+    }
+    return word;
+  };
+
+  const yellowifyLetters = (word) => {
+    for (let i = 0; i < 5; i++) {
+      if (grid[row][i].value !== '_') {
+        let idx = word.indexOf(grid[row][i].value);
+        if (idx !== -1) {
+          grid[row][i].color = 'yellow';
+          word[idx] = '_';
+        }
       }
     }
   };
@@ -84,7 +99,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
         }, '');
         if (enteredWord === singleword) {
           console.info('>>>YOU WIN!!! 🎉');
-          greenifyLetters();
+          yellowifyLetters(greenifyLetters());
           setGrid(grid);
           setWin(true);
         } else {
@@ -93,7 +108,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
           let newCol = 0;
           setRow(newRow);
           setCol(newCol);
-          greenifyLetters();
+          yellowifyLetters(greenifyLetters());
           setGrid(grid);
         }
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
