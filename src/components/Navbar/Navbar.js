@@ -38,11 +38,11 @@ const Navbar = () => {
   return (
     <div className="navbar-css">
       <div className="row">
-        <div className="col-lg-3">
+        <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
           <GoThreeBars />
         </div>
-        <div className="col-lg-6">Wordle</div>
-        <div className="col-lg-3 nav-icons-right-side">
+        <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
+        <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
           <audio ref={audioRef} src={music}>
             <track kind="captions" srcLang="en" label="English captions" />
           </audio>

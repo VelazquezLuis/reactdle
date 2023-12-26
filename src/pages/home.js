@@ -21,7 +21,7 @@ const Home = () => {
   const [col, setCol] = useState(0);
 
   return (
-    <div className="boardBackground">
+    <div>
       <Navbar className="navbar-css" />
       Dark Theme:
       <ReactSwitch
