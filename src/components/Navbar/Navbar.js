@@ -36,30 +36,28 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="navbar-css">
-      <div className="row">
-        <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
-          <GoThreeBars />
-        </div>
-        <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
-        <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
-          <audio ref={audioRef} src={music}>
-            <track kind="captions" srcLang="en" label="English captions" />
-          </audio>
+    <div className="navbar-css row">
+      <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
+        <GoThreeBars />
+      </div>
+      <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
+      <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
+        <audio ref={audioRef} src={music}>
+          <track kind="captions" srcLang="en" label="English captions" />
+        </audio>
 
-          {/* // Below code handles sound icon change */}
+        {/* // Below code handles sound icon change */}
 
-          {!sound ? (
-            <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-          ) : (
-            // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-            // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-            <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-          )}
+        {!sound ? (
+          <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+        ) : (
+          // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+          // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+          <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+        )}
 
-          <AiOutlineQuestionCircle onClick={handleShow} />
-          <BsFillGearFill onClick={handleShow} />
-        </div>
+        <AiOutlineQuestionCircle onClick={handleShow} />
+        <BsFillGearFill onClick={handleShow} />
       </div>
     </div>
   );
