@@ -35,8 +35,24 @@ const Navbar = () => {
     handlePlaySoundOff();
   }, []);
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  if (isHovered) {
+    console.log('Inside Navbar Innnnnnnnnnnn');
+  } else {
+    console.log('Left Navbar LLLLLLLLLLLLLLLLLL');
+  }
+
   return (
-    <div className="navbar-css row">
+    <div
+      className="navbar-css row "
+      onMouseOver={() => {
+        setIsHovered(true);
+      }}
+      onMouseOut={() => {
+        setIsHovered(false);
+      }}
+    >
       <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
         <GoThreeBars />
       </div>
