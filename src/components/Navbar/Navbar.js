@@ -39,7 +39,6 @@ const Navbar = () => {
 
   if (isHovered) {
     console.log('Inside Navbar Innnnnnnnnnnn');
-    <style>cursor: grab/pointer</style>;
   } else {
     console.log('Left Navbar LLLLLLLLLLLLLLLLLL');
   }
