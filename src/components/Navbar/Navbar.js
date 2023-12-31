@@ -48,17 +48,16 @@ const Navbar = () => {
   }, [isHovered]);
 
   return (
-    <div
-      className="navbar-css row "
-      onMouseOver={() => {
-        setIsHovered(true);
-      }}
-      onMouseOut={() => {
-        setIsHovered(false);
-      }}
-    >
+    <div className="navbar-css row ">
       <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
-        <GoThreeBars />
+        <GoThreeBars
+          onMouseOver={() => {
+            setIsHovered(true);
+          }}
+          onMouseOut={() => {
+            setIsHovered(false);
+          }}
+        />
       </div>
       <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
       <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
@@ -69,15 +68,47 @@ const Navbar = () => {
         {/* // Below code handles sound icon change */}
 
         {!sound ? (
-          <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+          <HiOutlineSpeakerXMark
+            onClick={handlePlaySoundOn}
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+          />
         ) : (
           // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
           // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-          <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+          <HiOutlineSpeakerWave
+            onClick={handlePlaySoundOff}
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+          />
         )}
 
-        <AiOutlineQuestionCircle onClick={handleShow} />
-        <BsFillGearFill onClick={handleShow} />
+        <AiOutlineQuestionCircle
+          onClick={handleShow}
+          onMouseOver={() => {
+            setIsHovered(true);
+          }}
+          onMouseOut={() => {
+            setIsHovered(false);
+          }}
+        />
+        <BsFillGearFill
+          onClick={handleShow}
+          onMouseOver={() => {
+            setIsHovered(true);
+          }}
+          onMouseOut={() => {
+            setIsHovered(false);
+          }}
+        />
       </div>
     </div>
   );
