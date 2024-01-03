@@ -22,18 +22,17 @@ function App() {
 
   if (Array.isArray(wordleWordDB)) {
     singleword = wordleWordDB[count].word;
-    console.log(singleword);
+    // console.log(singleword);
   }
-  console.log('before addition count is: ', count);
+  // console.log('before addition count is: ', count);
   useEffect(() => {
-    console.log('App.js useEffect has been triggered.');
+    // console.log('App.js useEffect has been triggered.');
 
     if (win) {
       setCount((count) => count + 1);
       setWin(false);
     }
-
-    console.log('after addition count is: ', count);
+    // console.log('after addition count is: ', count);
   }, [win, count]);
 
   const [theme, setTheme] = useState('light');

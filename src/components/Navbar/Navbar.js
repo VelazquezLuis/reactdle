@@ -26,22 +26,14 @@ const Navbar = () => {
     audioRef.current.play();
   }
   if (sound === false) {
-    console.log('sound is set to FALSE');
     audioRef.current.pause();
   }
 
   useEffect(() => {
-    console.log('Should only run once');
     handlePlaySoundOff();
   }, []);
 
   const [isHovered, setIsHovered] = useState(false);
-
-  if (isHovered) {
-    console.log('Inside Navbar Innnnnnnnnnnn');
-  } else {
-    console.log('Left Navbar LLLLLLLLLLLLLLLLLL');
-  }
 
   useEffect(() => {
     document.body.style.cursor = isHovered ? 'pointer' : 'auto';

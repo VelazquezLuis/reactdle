@@ -12,7 +12,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
     class: 'enterdeletekey enter',
     value: 'enter',
   };
-  console.log('Inside keyboard.js - singleword is: ', singleword);
+  // console.log('Inside keyboard.js - singleword is: ', singleword);
   const del = {
     class: 'enterdeletekey delete',
     value: (
