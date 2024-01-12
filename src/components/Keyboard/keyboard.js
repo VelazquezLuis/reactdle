@@ -3,6 +3,8 @@ import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
 import { ThemeContext } from '../../App';
 import './keyboard.css';
+import useSound from 'use-sound';
+import clickSound from '../Keyboard/clickSound.mp3';
 
 const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   const { singleword, setWin, win } = useContext(ThemeContext);
@@ -13,6 +15,8 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
     value: 'enter',
   };
   // console.log('Inside keyboard.js - singleword is: ', singleword);
+  const [playClickSound] = useSound(clickSound);
+
   const del = {
     class: 'enterdeletekey delete',
     value: (
@@ -35,6 +39,13 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
 
   const addLetter = (value) => {
     // console.log(">>>addLetter", row + " " + col);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>addLetter', value);
+
+    if (value) {
+      // console.log('The if statement has been run');
+      playClickSound();
+      console.log('playClickSound typeOf', typeof playClickSound);
+    }
     if (row < 5 && col < 5) {
       let newRow = row;
       let newCol = col + 1;
