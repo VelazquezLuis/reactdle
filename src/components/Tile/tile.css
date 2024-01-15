@@ -9,3 +9,11 @@
   font-size: 32px;
   font-weight: 700;
 }
+
+.tile-green {
+  color: green;
+}
+
+.tile-yellow {
+  color: yellow;
+}

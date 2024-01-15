@@ -50,16 +50,10 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
       let newRow = row;
       let newCol = col + 1;
 
-      // KEEP THIS TO REMEMBER WHAT WAS DELETED
-      // if (newCol > 4) {
-      //   newRow += 1;
-      //   newCol = 0;
-      // }
-
       setRow(newRow);
       setCol(newCol);
 
-      grid[row][col] = value;
+      grid[row][col] = { value: value };
       setGrid(grid);
     }
   };
@@ -77,6 +71,29 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
     }
   };
 
+  const greenifyLetters = () => {
+    let word = singleword.split('');
+    for (let i = 0; i < 5; i++) {
+      if (grid[row][i].value === word[i]) {
+        grid[row][i].color = 'green';
+        word[i] = '_';
+      }
+    }
+    return word;
+  };
+
+  const yellowifyLetters = (word) => {
+    for (let i = 0; i < 5; i++) {
+      if (grid[row][i].value !== '_') {
+        let idx = word.indexOf(grid[row][i].value);
+        if (idx !== -1) {
+          grid[row][i].color = 'yellow';
+          word[idx] = '_';
+        }
+      }
+    }
+  };
+
   const handleWindowResize = (e) => {
     if (
       ((e.keyCode >= 65 && e.keyCode <= 90) ||
@@ -88,26 +105,23 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
       if (e.key === 'Backspace') {
         removeLetter();
       } else if (e.key === 'Enter' && row >= 0 && col >= 5) {
-        /* TODO: Compare against Word of Day before moving on */
-        /* Things to consider: */
-        /* Enter only works if row is filled so words are compared */
-        /* Entered word must validate if it is an actual word */
-        /* No backspace to previous line */
-        /* Also think about virtual keyboard implementation of this logic */
-        /* Need game done/game over condition, which prevents user input */
-        // console.log('>>>grid', grid);
-        // console.log('>>>row', row);
-        // console.log('>>>col', col);
-        if (grid[row].join('') === singleword) {
+        let enteredWord = grid[row].reduce((total, letterObj) => {
+          total = total + letterObj.value;
+          return total;
+        }, '');
+        if (enteredWord === singleword) {
           console.info('>>>YOU WIN!!! 🎉');
+          yellowifyLetters(greenifyLetters());
+          setGrid(grid);
           setWin(true);
-          //TODO: TURN ALL LETTERS GREEN
         } else {
           //TODO: COMPARE TO GET GREEN/YELLOW LETTERS
           let newRow = row + 1;
           let newCol = 0;
           setRow(newRow);
           setCol(newCol);
+          yellowifyLetters(greenifyLetters());
+          setGrid(grid);
         }
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
         addLetter(e.key.toLowerCase());
