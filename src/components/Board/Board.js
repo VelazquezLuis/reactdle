@@ -3,10 +3,7 @@ import { PropTypes } from 'prop-types';
 import Tile from '../Tile/Tile';
 import './board.css';
 
-
 const Board = ({ grid }) => {
-  
-
   const tiles = [];
   let tileNumber = 0;
   for (let i = 0; i < grid[0].length; i += 1) {
