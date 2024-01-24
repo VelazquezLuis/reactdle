@@ -26,39 +26,81 @@ const Navbar = () => {
     audioRef.current.play();
   }
   if (sound === false) {
-    console.log('sound is set to FALSE');
     audioRef.current.pause();
   }
 
   useEffect(() => {
-    console.log('Should only run once');
-    handlePlaySoundOn();
+    handlePlaySoundOff();
   }, []);
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    document.body.style.cursor = isHovered ? 'pointer' : 'auto';
+  }, [isHovered]);
+
   return (
-    <div className="navbar-css">
-      <div className="row">
-        <div className="col-lg-2">
-          <GoThreeBars />
-        </div>
-        <div className="col-lg-3">Wordle</div>
-        <div className="col-lg-7 navrside">
-          <audio ref={audioRef} src={music}>
-            <track kind="captions" srcLang="en" label="English captions" />
-          </audio>
+    <div className="navbar-css row ">
+      <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
+        <GoThreeBars
+          onMouseOver={() => {
+            setIsHovered(true);
+          }}
+          onMouseOut={() => {
+            setIsHovered(false);
+          }}
+        />
+      </div>
+      <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
+      <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
+        <audio ref={audioRef} src={music}>
+          <track kind="captions" srcLang="en" label="English captions" />
+        </audio>
 
-          {/* // Below code handles sound icon change */}
-          <div className="icon-container">
-            {sound ? (
-              <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-            ) : (
-              <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-            )}
+        {/* // Below code handles sound icon change */}
 
-            <AiOutlineQuestionCircle onClick={handleShow} />
-            <BsFillGearFill onClick={handleShow} />
-          </div>
-        </div>
+        {!sound ? (
+          <HiOutlineSpeakerXMark
+            onClick={handlePlaySoundOn}
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+          />
+        ) : (
+          // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+          // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+          <HiOutlineSpeakerWave
+            onClick={handlePlaySoundOff}
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+          />
+        )}
+
+        <AiOutlineQuestionCircle
+          onClick={handleShow}
+          onMouseOver={() => {
+            setIsHovered(true);
+          }}
+          onMouseOut={() => {
+            setIsHovered(false);
+          }}
+        />
+        <BsFillGearFill
+          onClick={handleShow}
+          onMouseOver={() => {
+            setIsHovered(true);
+          }}
+          onMouseOut={() => {
+            setIsHovered(false);
+          }}
+        />
       </div>
     </div>
   );
