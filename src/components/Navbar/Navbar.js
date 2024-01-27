@@ -3,7 +3,7 @@ import './navbar.css';
 
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { BsFillGearFill } from 'react-icons/bs';
-import { GoThreeBars } from 'react-icons/go';
+import { FaBars } from 'react-icons/fa6';
 import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
 import music from '../../backgroundmusic.mp3';
@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <div className="navbar-css row ">
       <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
-        <GoThreeBars
+        <FaBars
           onMouseOver={() => {
             setIsHovered(true);
           }}
