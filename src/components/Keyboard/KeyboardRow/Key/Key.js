@@ -46,7 +46,7 @@ const Key = ({
         event.preventDefault();
         if (classValue === 'enterdeletekey delete') {
           removeLetter();
-        } else if(classValue === 'enterdeletekey enter') {
+        } else if (classValue === 'enterdeletekey enter') {
           //TODO: resolve enter button click
         } else {
           addLetter();
