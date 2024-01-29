@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
-import KeyboardRow from './Keyboard/KeyboardRow';
+import KeyboardRow from './KeyboardRow/KeyboardRow';
 import { ThemeContext } from '../../App';
 import './keyboard.css';
 import useSound from 'use-sound';
