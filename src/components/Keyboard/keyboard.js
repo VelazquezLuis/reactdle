@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
-import KeyboardRow from './KeyboardRow/KeyboardRow';
+import KeyboardRow from './Keyboard/KeyboardRow';
 import { ThemeContext } from '../../App';
 import './keyboard.css';
 import useSound from 'use-sound';
@@ -115,7 +115,6 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
           setGrid(grid);
           setWin(true);
         } else {
-          //TODO: COMPARE TO GET GREEN/YELLOW LETTERS
           let newRow = row + 1;
           let newCol = 0;
           setRow(newRow);
