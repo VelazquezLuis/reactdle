@@ -1,5 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import useSound from 'use-sound';
+import clickSound from './clickSound.mp3';
 
 const Key = ({
   value,
@@ -37,6 +39,8 @@ const Key = ({
     }
   };
 
+  const [playClickSound] = useSound(clickSound);
+
   return (
     <button
       type="button"
@@ -51,6 +55,7 @@ const Key = ({
         } else {
           addLetter();
         }
+        playClickSound();
       }}
       onMouseDown={(event) => event.preventDefault()}
     >
