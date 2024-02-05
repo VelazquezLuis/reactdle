@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
+import { greenifyLetters, yellowifyLetters } from '../../helpers/helpers';
 import { ThemeContext } from '../../App';
 import './keyboard.css';
 import useSound from 'use-sound';
@@ -71,29 +72,6 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
     }
   };
 
-  const greenifyLetters = () => {
-    let word = singleword.split('');
-    for (let i = 0; i < 5; i++) {
-      if (grid[row][i].value === word[i]) {
-        grid[row][i].color = 'green';
-        word[i] = '_';
-      }
-    }
-    return word;
-  };
-
-  const yellowifyLetters = (word) => {
-    for (let i = 0; i < 5; i++) {
-      if (grid[row][i].value !== '_') {
-        let idx = word.indexOf(grid[row][i].value);
-        if (idx !== -1) {
-          grid[row][i].color = 'yellow';
-          word[idx] = '_';
-        }
-      }
-    }
-  };
-
   const handleWindowResize = (e) => {
     if (
       ((e.keyCode >= 65 && e.keyCode <= 90) ||
@@ -111,7 +89,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
         }, '');
         if (enteredWord === singleword) {
           console.info('>>>YOU WIN!!! 🎉');
-          yellowifyLetters(greenifyLetters());
+          yellowifyLetters(greenifyLetters(singleword, grid, row), grid, row);
           setGrid(grid);
           setWin(true);
         } else {
@@ -119,7 +97,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
           let newCol = 0;
           setRow(newRow);
           setCol(newCol);
-          yellowifyLetters(greenifyLetters());
+          yellowifyLetters(greenifyLetters(singleword, grid, row), grid, row);
           setGrid(grid);
         }
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
