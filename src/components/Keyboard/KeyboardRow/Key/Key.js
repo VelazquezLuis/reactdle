@@ -1,5 +1,7 @@
-import React from 'react';
+import { React, useContext } from 'react';
+import { ThemeContext } from '../../../../App';
 import { PropTypes } from 'prop-types';
+import { greenifyLetters, yellowifyLetters } from '../../../../helpers/helpers';
 
 const Key = ({
   value,
@@ -11,6 +13,7 @@ const Key = ({
   grid,
   setGrid,
 }) => {
+  const { singleword, setWin, win } = useContext(ThemeContext);
   const addLetter = () => {
     if (row < 5 && col < 5) {
       let newRow = row;
@@ -44,12 +47,43 @@ const Key = ({
       className={classValue ? `${classValue} thekey` : 'thekey'}
       onClick={(event) => {
         event.preventDefault();
-        if (classValue === 'enterdeletekey delete') {
-          removeLetter();
-        } else if (classValue === 'enterdeletekey enter') {
-          //TODO: resolve enter button click
-        } else {
-          addLetter();
+        if (!win && row < 5) {
+          if (classValue === 'enterdeletekey delete') {
+            removeLetter();
+          } else if (
+            classValue === 'enterdeletekey enter' &&
+            row >= 0 &&
+            col >= 5
+          ) {
+            //TODO: resolve enter button click
+            let enteredWord = grid[row].reduce((total, letterObj) => {
+              total = total + letterObj.value;
+              return total;
+            }, '');
+            if (enteredWord === singleword) {
+              console.info('>>>YOU WIN!!! 🎉');
+              yellowifyLetters(
+                greenifyLetters(singleword, grid, row),
+                grid,
+                row
+              );
+              setGrid(grid);
+              setWin(true);
+            } else {
+              let newRow = row + 1;
+              let newCol = 0;
+              setRow(newRow);
+              setCol(newCol);
+              yellowifyLetters(
+                greenifyLetters(singleword, grid, row),
+                grid,
+                row
+              );
+              setGrid(grid);
+            }
+          } else {
+            addLetter();
+          }
         }
       }}
       onMouseDown={(event) => event.preventDefault()}
