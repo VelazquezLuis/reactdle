@@ -119,11 +119,11 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`navbar-css row sidebar ${
+        className={`navbar-css ${
           isSidebarVisible ? 'show-sidebar' : 'hide-sidebar'
         }`}
       >
-        <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
+        <div className="font-size">
           <IoClose
             onMouseOver={() => {
               setIsHovered(true);
@@ -134,8 +134,8 @@ const Navbar = () => {
             onClick={toggleSidebar}
           />
         </div>
-        <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
-        <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
+        <> Wordle</>
+        <div>
           <audio ref={audioRef} src={music}>
             <track kind="captions" srcLang="en" label="English captions" />
           </audio>
@@ -165,7 +165,8 @@ const Navbar = () => {
               }}
             />
           )}
-
+        </div>
+        <div>
           <AiOutlineQuestionCircle
             onClick={handleShow}
             onMouseOver={() => {
@@ -175,6 +176,8 @@ const Navbar = () => {
               setIsHovered(false);
             }}
           />
+        </div>
+        <div>
           <BsFillGearFill
             onClick={handleShow}
             onMouseOver={() => {
