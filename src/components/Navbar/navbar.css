@@ -56,7 +56,7 @@
   z-index: 999;
   background-color: #f8f9fa;
   backdrop-filter: blur(10px);
-  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: -10px 0 10px #0000001a;
   display: none !important;
   flex-direction: column;
   align-items: flex-start;
@@ -67,12 +67,10 @@
   .hide-on-mobile {
     display: none !important;
   }
-
 }
 
 @media screen and (min-width: 768px) {
   .hide-on-des {
     display: none !important;
   }
-
 }
