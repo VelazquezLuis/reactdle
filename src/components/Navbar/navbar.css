@@ -39,15 +39,10 @@
 }
 
 .show-sidebar div {
-
   padding-left: 20px;
-
-
-
 }
 
 .show-sidebar div:hover {
-
   background-color: lightgrey;
   padding-right: 150px;
 }
@@ -69,14 +64,14 @@
 }
 
 @media screen and (max-width: 768px) {
-  .hideOnMobile {
+  .hide-on-mobile {
     display: none !important;
   }
 
 }
 
 @media screen and (min-width: 768px) {
-  .hideOnDesktop {
+  .hide-on-des {
     display: none !important;
   }
 

@@ -51,7 +51,7 @@ const Navbar = () => {
       <div className="navbar-css row ">
         <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
           <FaBars
-            className="hideOnDesktop"
+            className="hide-on-desktop"
             onMouseOver={() => {
               setIsHovered(true);
             }}
@@ -71,7 +71,7 @@ const Navbar = () => {
 
           {!sound ? (
             <HiOutlineSpeakerXMark
-              className="hideOnMobile"
+              className="hide-on-mobile"
               onClick={handlePlaySoundOn}
               onMouseOver={() => {
                 setIsHovered(true);
@@ -84,7 +84,7 @@ const Navbar = () => {
             // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
             // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
             <HiOutlineSpeakerWave
-              className="hideOnMobile"
+              className="hide-on-mobile"
               onClick={handlePlaySoundOff}
               onMouseOver={() => {
                 setIsHovered(true);
@@ -96,7 +96,7 @@ const Navbar = () => {
           )}
 
           <AiOutlineQuestionCircle
-            className="hideOnMobile"
+            className="hide-on-mobile"
             onClick={handleShow}
             onMouseOver={() => {
               setIsHovered(true);
@@ -106,7 +106,7 @@ const Navbar = () => {
             }}
           />
           <BsFillGearFill
-            className="hideOnMobile"
+            className="hide-on-mobile"
             onClick={handleShow}
             onMouseOver={() => {
               setIsHovered(true);
