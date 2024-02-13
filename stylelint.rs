@@ -2,7 +2,7 @@
 	"annotation-no-unknown": true,
 	"at-rule-no-unknown": true,
 		"at-rule-no-unknown": true,
-		"block-no-empty": true,`
+		"block-no-empty": true,
 		"color-no-invalid-hex": true,
 		"comment-no-empty": true,
 		"custom-property-no-missing-var-function": true,
