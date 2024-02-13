@@ -70,7 +70,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .hide-on-des {
+  .hide-on-desktop {
     display: none !important;
   }
 }
