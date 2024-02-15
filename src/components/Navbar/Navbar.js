@@ -6,6 +6,7 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { FaBars } from 'react-icons/fa6';
 import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
+import { IoClose } from 'react-icons/io5';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
 
@@ -39,29 +40,64 @@ const Navbar = () => {
     document.body.style.cursor = isHovered ? 'pointer' : 'auto';
   }, [isHovered]);
 
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   return (
-    <div className="navbar-css row ">
-      <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
-        <FaBars
-          onMouseOver={() => {
-            setIsHovered(true);
-          }}
-          onMouseOut={() => {
-            setIsHovered(false);
-          }}
-        />
-      </div>
-      <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
-      <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
-        <audio ref={audioRef} src={music}>
-          <track kind="captions" srcLang="en" label="English captions" />
-        </audio>
+    <nav>
+      <div className="navbar-css row ">
+        <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
+          <FaBars
+            className="hide-on-desktop"
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+            onClick={toggleSidebar}
+          />
+        </div>
+        <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
+        <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
+          <audio ref={audioRef} src={music}>
+            <track kind="captions" srcLang="en" label="English captions" />
+          </audio>
 
-        {/* // Below code handles sound icon change */}
+          {/* // Below code handles sound icon change */}
 
-        {!sound ? (
-          <HiOutlineSpeakerXMark
-            onClick={handlePlaySoundOn}
+          {!sound ? (
+            <HiOutlineSpeakerXMark
+              className="hide-on-mobile"
+              onClick={handlePlaySoundOn}
+              onMouseOver={() => {
+                setIsHovered(true);
+              }}
+              onMouseOut={() => {
+                setIsHovered(false);
+              }}
+            />
+          ) : (
+            // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+            // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+            <HiOutlineSpeakerWave
+              className="hide-on-mobile"
+              onClick={handlePlaySoundOff}
+              onMouseOver={() => {
+                setIsHovered(true);
+              }}
+              onMouseOut={() => {
+                setIsHovered(false);
+              }}
+            />
+          )}
+
+          <AiOutlineQuestionCircle
+            className="hide-on-mobile"
+            onClick={handleShow}
             onMouseOver={() => {
               setIsHovered(true);
             }}
@@ -69,11 +105,9 @@ const Navbar = () => {
               setIsHovered(false);
             }}
           />
-        ) : (
-          // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-          // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-          <HiOutlineSpeakerWave
-            onClick={handlePlaySoundOff}
+          <BsFillGearFill
+            className="hide-on-mobile"
+            onClick={handleShow}
             onMouseOver={() => {
               setIsHovered(true);
             }}
@@ -81,28 +115,81 @@ const Navbar = () => {
               setIsHovered(false);
             }}
           />
-        )}
-
-        <AiOutlineQuestionCircle
-          onClick={handleShow}
-          onMouseOver={() => {
-            setIsHovered(true);
-          }}
-          onMouseOut={() => {
-            setIsHovered(false);
-          }}
-        />
-        <BsFillGearFill
-          onClick={handleShow}
-          onMouseOver={() => {
-            setIsHovered(true);
-          }}
-          onMouseOut={() => {
-            setIsHovered(false);
-          }}
-        />
+        </div>
       </div>
-    </div>
+
+      <div
+        className={`navbar-css ${
+          isSidebarVisible ? 'show-sidebar' : 'hide-sidebar'
+        }`}
+      >
+        <div className="font-size">
+          <IoClose
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+            onClick={toggleSidebar}
+          />
+        </div>
+        <> Wordle</>
+        <div>
+          <audio ref={audioRef} src={music}>
+            <track kind="captions" srcLang="en" label="English captions" />
+          </audio>
+
+          {/* // Below code handles sound icon change */}
+
+          {!sound ? (
+            <HiOutlineSpeakerXMark
+              onClick={handlePlaySoundOn}
+              onMouseOver={() => {
+                setIsHovered(true);
+              }}
+              onMouseOut={() => {
+                setIsHovered(false);
+              }}
+            />
+          ) : (
+            // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+            // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+            <HiOutlineSpeakerWave
+              onClick={handlePlaySoundOff}
+              onMouseOver={() => {
+                setIsHovered(true);
+              }}
+              onMouseOut={() => {
+                setIsHovered(false);
+              }}
+            />
+          )}
+        </div>
+        <div>
+          <AiOutlineQuestionCircle
+            onClick={handleShow}
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+          />
+        </div>
+        <div>
+          <BsFillGearFill
+            onClick={handleShow}
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+          />
+        </div>
+      </div>
+    </nav>
   );
 };
 export default Navbar;

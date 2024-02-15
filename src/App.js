@@ -22,7 +22,7 @@ function App() {
 
   if (Array.isArray(wordleWordDB)) {
     singleword = wordleWordDB[count].word;
-    // console.log(singleword);
+    console.log(singleword);
   }
   // console.log('before addition count is: ', count);
   useEffect(() => {

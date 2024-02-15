@@ -5,7 +5,7 @@ import { greenifyLetters, yellowifyLetters } from '../../helpers/helpers';
 import { ThemeContext } from '../../App';
 import './keyboard.css';
 import useSound from 'use-sound';
-import clickSound from '../Keyboard/clickSound.mp3';
+import clickSound from './clickSound.mp3';
 
 const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   const { singleword, setWin, win } = useContext(ThemeContext);

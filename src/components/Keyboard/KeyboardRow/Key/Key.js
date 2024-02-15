@@ -2,6 +2,8 @@ import { React, useContext } from 'react';
 import { ThemeContext } from '../../../../App';
 import { PropTypes } from 'prop-types';
 import { greenifyLetters, yellowifyLetters } from '../../../../helpers/helpers';
+import useSound from 'use-sound';
+import clickSound from './clickSound.mp3';
 
 const Key = ({
   value,
@@ -39,6 +41,8 @@ const Key = ({
       setGrid(grid);
     }
   };
+
+  const [playClickSound] = useSound(clickSound);
 
   return (
     <button
@@ -85,6 +89,7 @@ const Key = ({
             addLetter();
           }
         }
+        playClickSound();
       }}
       onMouseDown={(event) => event.preventDefault()}
     >
