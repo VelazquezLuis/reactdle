@@ -9,6 +9,8 @@ import { HiOutlineSpeakerWave } from 'react-icons/hi2';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
 
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 const Navbar = () => {
   const { handleShow } = useContext(ThemeContext);
 
@@ -36,12 +38,6 @@ const Navbar = () => {
     document.body.style.cursor = isHovered ? 'pointer' : 'auto';
   }, [isHovered]);
 
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
-  };
-
   return (
     <nav>
       <div className="navbar-css row ">
@@ -54,7 +50,6 @@ const Navbar = () => {
             onMouseOut={() => {
               setIsHovered(false);
             }}
-            onClick={toggleSidebar}
           />
         </div>
         <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
