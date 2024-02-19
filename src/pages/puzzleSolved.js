@@ -3,9 +3,6 @@ import './puzzleSolved.css';
 import ReactSwitch from 'react-switch';
 import { ThemeContext } from '../App';
 
-// const toggleTheme = () => {
-//   setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
-
 const PuzzleSolved = () => {
   const infoByContext = useContext(ThemeContext);
   return (

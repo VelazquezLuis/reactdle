@@ -11,7 +11,6 @@ import Home from './pages/home';
 import PuzzleSolved from './pages/puzzleSolved';
 import GetWordleWord from './api/wordleWord';
 
-// import ReactSwitch from 'react-switch';
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -22,17 +21,12 @@ function App() {
 
   if (Array.isArray(wordleWordDB)) {
     singleword = wordleWordDB[count].word;
-    console.log(singleword);
   }
-  // console.log('before addition count is: ', count);
   useEffect(() => {
-    // console.log('App.js useEffect has been triggered.');
-
     if (win) {
       setCount((count) => count + 1);
       setWin(false);
     }
-    // console.log('after addition count is: ', count);
   }, [win, count]);
 
   const [theme, setTheme] = useState('light');
