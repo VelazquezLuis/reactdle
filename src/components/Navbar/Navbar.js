@@ -14,15 +14,12 @@ const Navbar = () => {
 
   const audioRef = useRef(null);
 
-  ////////////////
-
   const [sound, setSound] = useState();
 
   const handlePlaySoundOn = () => setSound(true);
   const handlePlaySoundOff = () => setSound(false);
 
   if (sound === true) {
-    // console.log('sound is set to TRUE');
     audioRef.current.play();
   }
   if (sound === false) {

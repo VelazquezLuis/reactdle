@@ -23,7 +23,6 @@ const Board = ({ grid }) => {
     tiles.push(
       <div key={Math.random()} className="board-row">
         {row}
-        {console.log('row***???')}
       </div>
     );
   }
