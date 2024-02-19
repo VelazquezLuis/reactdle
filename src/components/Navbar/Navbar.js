@@ -6,7 +6,6 @@ import { BsFillGearFill } from 'react-icons/bs';
 import { FaBars } from 'react-icons/fa6';
 import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
-import { IoClose } from 'react-icons/io5';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
 
@@ -107,78 +106,6 @@ const Navbar = () => {
           />
           <BsFillGearFill
             className="hide-on-mobile"
-            onClick={handleShow}
-            onMouseOver={() => {
-              setIsHovered(true);
-            }}
-            onMouseOut={() => {
-              setIsHovered(false);
-            }}
-          />
-        </div>
-      </div>
-
-      <div
-        className={`navbar-css ${
-          isSidebarVisible ? 'show-sidebar' : 'hide-sidebar'
-        }`}
-      >
-        <div className="font-size">
-          <IoClose
-            onMouseOver={() => {
-              setIsHovered(true);
-            }}
-            onMouseOut={() => {
-              setIsHovered(false);
-            }}
-            onClick={toggleSidebar}
-          />
-        </div>
-        <> Wordle</>
-        <div>
-          <audio ref={audioRef} src={music}>
-            <track kind="captions" srcLang="en" label="English captions" />
-          </audio>
-
-          {/* // Below code handles sound icon change */}
-
-          {!sound ? (
-            <HiOutlineSpeakerXMark
-              onClick={handlePlaySoundOn}
-              onMouseOver={() => {
-                setIsHovered(true);
-              }}
-              onMouseOut={() => {
-                setIsHovered(false);
-              }}
-            />
-          ) : (
-            // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-            // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-            <HiOutlineSpeakerWave
-              onClick={handlePlaySoundOff}
-              onMouseOver={() => {
-                setIsHovered(true);
-              }}
-              onMouseOut={() => {
-                setIsHovered(false);
-              }}
-            />
-          )}
-        </div>
-        <div>
-          <AiOutlineQuestionCircle
-            onClick={handleShow}
-            onMouseOver={() => {
-              setIsHovered(true);
-            }}
-            onMouseOut={() => {
-              setIsHovered(false);
-            }}
-          />
-        </div>
-        <div>
-          <BsFillGearFill
             onClick={handleShow}
             onMouseOver={() => {
               setIsHovered(true);
