@@ -1,7 +1,12 @@
 import { React, useContext } from 'react';
 import { ThemeContext } from '../../../../App';
 import { PropTypes } from 'prop-types';
-import { greenifyLetters, yellowifyLetters } from '../../../../helpers/helpers';
+import {
+  greenifyLetters,
+  yellowifyLetters,
+  addLetter,
+  removeLetter,
+} from '../../../../helpers/helpers';
 import useSound from 'use-sound';
 import clickSound from './clickSound.mp3';
 
@@ -16,31 +21,6 @@ const Key = ({
   setGrid,
 }) => {
   const { singleword, setWin, win } = useContext(ThemeContext);
-  const addLetter = () => {
-    if (row < 5 && col < 5) {
-      let newRow = row;
-      let newCol = col + 1;
-
-      setRow(newRow);
-      setCol(newCol);
-
-      grid[row][col] = { value: value };
-      setGrid(grid);
-    }
-  };
-
-  const removeLetter = () => {
-    if (row > 0 || col > 0) {
-      let newCol = col - 1;
-      if (newCol === -1) {
-        newCol = 0;
-      }
-      setCol(newCol);
-
-      grid[row][newCol] = '';
-      setGrid(grid);
-    }
-  };
 
   const [playClickSound] = useSound(clickSound);
 
@@ -53,13 +33,12 @@ const Key = ({
         event.preventDefault();
         if (!win && row < 5) {
           if (classValue === 'enterdeletekey delete') {
-            removeLetter();
+            removeLetter(row, col, grid, setCol, setGrid);
           } else if (
             classValue === 'enterdeletekey enter' &&
             row >= 0 &&
             col >= 5
           ) {
-            //TODO: resolve enter button click
             let enteredWord = grid[row].reduce((total, letterObj) => {
               total = total + letterObj.value;
               return total;
@@ -86,10 +65,20 @@ const Key = ({
               setGrid(grid);
             }
           } else {
-            addLetter();
+            if (value.length === 1) {
+              addLetter(
+                value,
+                row,
+                col,
+                grid,
+                setRow,
+                setCol,
+                setGrid,
+                playClickSound
+              );
+            }
           }
         }
-        playClickSound();
       }}
       onMouseDown={(event) => event.preventDefault()}
     >

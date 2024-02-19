@@ -9,7 +9,6 @@ import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
   const { theme, toggleTheme, individualWord } = useContext(ThemeContext);
-  // const [win, setWin] = useState(false); //  moved to App.js
   const [grid, setGrid] = useState([
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -28,11 +27,6 @@ const Home = () => {
         onChange={toggleTheme}
         checked={theme === 'dark'} // may serve another purpose. more research needed.
       />
-      {/* <audio ref={audioRef} src={music}>
-        <track kind="captions" srcLang="en" label="English captions" />
-      </audio>
-      Play Sound:
-      <ReactSwitch onChange={isPlaying ? pause : play} checked={isPlaying} /> */}
       <div>
         <div className="board-wrapper">
           <Board grid={grid} />
@@ -44,9 +38,6 @@ const Home = () => {
           setCol={setCol}
           grid={grid}
           setGrid={setGrid}
-          // wordleWord={wordleWord} // moved through context ***
-          // win={win}
-          // setWin={setWin}
           individualWord={individualWord}
         />
         <Howtoplaymodal />

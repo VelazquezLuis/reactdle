@@ -1,7 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import KeyboardRow from './KeyboardRow/KeyboardRow';
-import { greenifyLetters, yellowifyLetters } from '../../helpers/helpers';
+import {
+  greenifyLetters,
+  yellowifyLetters,
+  addLetter,
+  removeLetter,
+} from '../../helpers/helpers';
 import { ThemeContext } from '../../App';
 import './keyboard.css';
 import useSound from 'use-sound';
@@ -15,7 +20,6 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
     class: 'enterdeletekey enter',
     value: 'enter',
   };
-  // console.log('Inside keyboard.js - singleword is: ', singleword);
   const [playClickSound] = useSound(clickSound);
 
   const del = {
@@ -38,40 +42,6 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
   };
   const row3 = [enter, 'z', 'x', 'c', 'v', 'b', 'n', 'm', del];
 
-  const addLetter = (value) => {
-    // console.log(">>>addLetter", row + " " + col);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>addLetter', value);
-
-    if (value) {
-      // console.log('The if statement has been run');
-      playClickSound();
-      console.log('playClickSound typeOf', typeof playClickSound);
-    }
-    if (row < 5 && col < 5) {
-      let newRow = row;
-      let newCol = col + 1;
-
-      setRow(newRow);
-      setCol(newCol);
-
-      grid[row][col] = { value: value };
-      setGrid(grid);
-    }
-  };
-
-  const removeLetter = () => {
-    if (row > 0 || col > 0) {
-      let newCol = col - 1;
-      if (newCol === -1) {
-        newCol = 0;
-      }
-      setCol(newCol);
-
-      grid[row][newCol] = '';
-      setGrid(grid);
-    }
-  };
-
   const handleWindowResize = (e) => {
     if (
       ((e.keyCode >= 65 && e.keyCode <= 90) ||
@@ -81,7 +51,7 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
       row < 5
     ) {
       if (e.key === 'Backspace') {
-        removeLetter();
+        removeLetter(row, col, grid, setCol, setGrid);
       } else if (e.key === 'Enter' && row >= 0 && col >= 5) {
         let enteredWord = grid[row].reduce((total, letterObj) => {
           total = total + letterObj.value;
@@ -101,7 +71,16 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
           setGrid(grid);
         }
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
-        addLetter(e.key.toLowerCase());
+        addLetter(
+          e.key.toLowerCase(),
+          row,
+          col,
+          grid,
+          setRow,
+          setCol,
+          setGrid,
+          playClickSound
+        );
       }
     }
   };
