@@ -8,6 +8,7 @@ import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
+import Button from 'react-bootstrap/Button';
 
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
@@ -38,19 +39,68 @@ const Navbar = () => {
     document.body.style.cursor = isHovered ? 'pointer' : 'auto';
   }, [isHovered]);
 
+  const [showSidebar, setSidebarShow] = useState(false);
+
+  const handleSidebarClose = () => setSidebarShow(false);
+  const handleSidebarShow = () => setSidebarShow(true);
+
   return (
     <nav>
       <div className="navbar-css row ">
         <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
-          <FaBars
-            className="hide-on-desktop"
-            onMouseOver={() => {
-              setIsHovered(true);
-            }}
-            onMouseOut={() => {
-              setIsHovered(false);
-            }}
-          />
+          <FaBars className="d-md-none" onClick={handleSidebarShow} />
+          <Offcanvas
+            
+            show={showSidebar}
+            onHide={handleSidebarClose}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              {!sound ? (
+                <HiOutlineSpeakerXMark
+                  onClick={handlePlaySoundOn}
+                  onMouseOver={() => {
+                    setIsHovered(true);
+                  }}
+                  onMouseOut={() => {
+                    setIsHovered(false);
+                  }}
+                />
+              ) : (
+                // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+                // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+                <HiOutlineSpeakerWave
+                  onClick={handlePlaySoundOff}
+                  onMouseOver={() => {
+                    setIsHovered(true);
+                  }}
+                  onMouseOut={() => {
+                    setIsHovered(false);
+                  }}
+                />
+              )}
+              <AiOutlineQuestionCircle
+                onClick={handleShow}
+                onMouseOver={() => {
+                  setIsHovered(true);
+                }}
+                onMouseOut={() => {
+                  setIsHovered(false);
+                }}
+              />
+              <BsFillGearFill
+                onClick={handleShow}
+                onMouseOver={() => {
+                  setIsHovered(true);
+                }}
+                onMouseOut={() => {
+                  setIsHovered(false);
+                }}
+              />
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
         <div className="col-xs-2 col-sm-3 col-md-6 col-lg-6 ">Wordle</div>
         <div className="col-xs-9 col-sm-6 col-md-3 col-lg-3 nav-icons-right-side">
