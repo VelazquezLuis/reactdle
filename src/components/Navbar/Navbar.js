@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import './navbar.css';
-
+import ReactSwitch from 'react-switch';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { BsFillGearFill } from 'react-icons/bs';
 import { FaBars } from 'react-icons/fa6';
@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const Navbar = () => {
-  const { handleShow } = useContext(ThemeContext);
+  const { theme, toggleTheme, handleShow } = useContext(ThemeContext);
 
   const audioRef = useRef(null);
 
@@ -58,14 +58,50 @@ const Navbar = () => {
             }}
             onClick={handleSidebarShow}
           />
-          <Offcanvas show={showSidebar} onHide={handleSidebarClose}>
+          <Offcanvas
+            className="bootstrap-side-bar"
+            show={showSidebar}
+            onHide={handleSidebarClose}
+          >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Offcanvas</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              {!sound ? (
-                <HiOutlineSpeakerXMark
-                  onClick={handlePlaySoundOn}
+              <div>
+                Dark Theme:<span> </span>
+                <ReactSwitch
+                  onChange={toggleTheme}
+                  checked={theme === 'dark'} // may serve another purpose. more research needed.
+                />
+              </div>
+              <div className="bootstrap-side-bar-font">
+                {!sound ? (
+                  <HiOutlineSpeakerXMark
+                    onClick={handlePlaySoundOn}
+                    onMouseOver={() => {
+                      setIsHovered(true);
+                    }}
+                    onMouseOut={() => {
+                      setIsHovered(false);
+                    }}
+                  />
+                ) : (
+                  // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
+                  // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
+                  <HiOutlineSpeakerWave
+                    onClick={handlePlaySoundOff}
+                    onMouseOver={() => {
+                      setIsHovered(true);
+                    }}
+                    onMouseOut={() => {
+                      setIsHovered(false);
+                    }}
+                  />
+                )}
+              </div>
+              <div className="bootstrap-side-bar-font">
+                <AiOutlineQuestionCircle
+                  onClick={handleShow}
                   onMouseOver={() => {
                     setIsHovered(true);
                   }}
@@ -73,11 +109,10 @@ const Navbar = () => {
                     setIsHovered(false);
                   }}
                 />
-              ) : (
-                // <HiOutlineSpeakerWave onClick={handlePlaySoundOff} />
-                // <HiOutlineSpeakerXMark onClick={handlePlaySoundOn} />
-                <HiOutlineSpeakerWave
-                  onClick={handlePlaySoundOff}
+              </div>{' '}
+              <div className="bootstrap-side-bar-font">
+                <BsFillGearFill
+                  onClick={handleShow}
                   onMouseOver={() => {
                     setIsHovered(true);
                   }}
@@ -85,25 +120,7 @@ const Navbar = () => {
                     setIsHovered(false);
                   }}
                 />
-              )}
-              <AiOutlineQuestionCircle
-                onClick={handleShow}
-                onMouseOver={() => {
-                  setIsHovered(true);
-                }}
-                onMouseOut={() => {
-                  setIsHovered(false);
-                }}
-              />
-              <BsFillGearFill
-                onClick={handleShow}
-                onMouseOver={() => {
-                  setIsHovered(true);
-                }}
-                onMouseOut={() => {
-                  setIsHovered(false);
-                }}
-              />
+              </div>
             </Offcanvas.Body>
           </Offcanvas>
         </div>

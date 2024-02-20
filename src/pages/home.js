@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import ReactSwitch from 'react-switch';
 import Navbar from '../components/Navbar/Navbar';
 import Board from '../components/Board/Board';
 import { ThemeContext } from '../App';
@@ -8,7 +7,7 @@ import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
-  const { theme, toggleTheme, individualWord } = useContext(ThemeContext);
+  const { individualWord } = useContext(ThemeContext);
   const [grid, setGrid] = useState([
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -22,11 +21,7 @@ const Home = () => {
   return (
     <div>
       <Navbar className="navbar-css" />
-      Dark Theme:
-      <ReactSwitch
-        onChange={toggleTheme}
-        checked={theme === 'dark'} // may serve another purpose. more research needed.
-      />
+
       <div>
         <div className="board-wrapper">
           <Board grid={grid} />

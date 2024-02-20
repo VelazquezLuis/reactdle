@@ -23,6 +23,26 @@
   gap: 20px;
 }
 
+.bootstrap-side-bar {
+  position: fixed;
+  top: 0;
+  left: 20;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: #f8f9fa;
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px #0000001a;
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.bootstrap-side-bar-font {
+  font-size: 36px;
+}
+
 /* 
 .show-sidebar {
   position: fixed;
