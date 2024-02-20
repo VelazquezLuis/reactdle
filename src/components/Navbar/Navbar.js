@@ -48,12 +48,17 @@ const Navbar = () => {
     <nav>
       <div className="navbar-css row ">
         <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
-          <FaBars className="d-md-none" onClick={handleSidebarShow} />
-          <Offcanvas
-            
-            show={showSidebar}
-            onHide={handleSidebarClose}
-          >
+          <FaBars
+            className="d-md-none"
+            onMouseOver={() => {
+              setIsHovered(true);
+            }}
+            onMouseOut={() => {
+              setIsHovered(false);
+            }}
+            onClick={handleSidebarShow}
+          />
+          <Offcanvas show={showSidebar} onHide={handleSidebarClose}>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Offcanvas</Offcanvas.Title>
             </Offcanvas.Header>
