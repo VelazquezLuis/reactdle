@@ -48,6 +48,13 @@ const Navbar = () => {
     <nav>
       <div className="navbar-css row ">
         <div className="col-xs-1 col-sm-2 col-md-3 col-lg-3 font-size">
+          <div className=" hide-on-tablet hide-on-mobile">
+            Dark Theme:<span> </span>
+            <ReactSwitch
+              onChange={toggleTheme}
+              checked={theme === 'dark'} // may serve another purpose. more research needed.
+            />
+          </div>
           <FaBars
             className="d-md-none"
             onMouseOver={() => {
