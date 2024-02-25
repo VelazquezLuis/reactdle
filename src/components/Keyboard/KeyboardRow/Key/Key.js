@@ -19,6 +19,7 @@ const Key = ({
   setCol,
   grid,
   setGrid,
+  setMasterFinalWord,
 }) => {
   const { singleword, setWin, win } = useContext(ThemeContext);
 
@@ -46,7 +47,7 @@ const Key = ({
             if (enteredWord === singleword) {
               console.info('>>>YOU WIN!!! 🎉');
               yellowifyLetters(
-                greenifyLetters(singleword, grid, row),
+                greenifyLetters(singleword, grid, row, setMasterFinalWord),
                 grid,
                 row
               );
@@ -58,7 +59,7 @@ const Key = ({
               setRow(newRow);
               setCol(newCol);
               yellowifyLetters(
-                greenifyLetters(singleword, grid, row),
+                greenifyLetters(singleword, grid, row, setMasterFinalWord),
                 grid,
                 row
               );

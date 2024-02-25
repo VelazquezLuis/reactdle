@@ -8,7 +8,7 @@ import { HiOutlineSpeakerXMark } from 'react-icons/hi2';
 import { HiOutlineSpeakerWave } from 'react-icons/hi2';
 import music from '../../backgroundmusic.mp3';
 import { ThemeContext } from '../../App';
-import Button from 'react-bootstrap/Button';
+
 
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
@@ -71,7 +71,7 @@ const Navbar = () => {
             onHide={handleSidebarClose}
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+              <Offcanvas.Title>Menu</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <div>

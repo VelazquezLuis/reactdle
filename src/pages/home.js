@@ -7,7 +7,7 @@ import Keyboard from '../components/Keyboard/keyboard';
 import Howtoplaymodal from '../components/Modals/howtoplaymodal';
 
 const Home = () => {
-  const { individualWord } = useContext(ThemeContext);
+  const { individualWord,  } = useContext(ThemeContext);
   const [grid, setGrid] = useState([
     ['', '', '', '', ''],
     ['', '', '', '', ''],

@@ -13,7 +13,8 @@ import useSound from 'use-sound';
 import clickSound from './clickSound.mp3';
 
 const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
-  const { singleword, setWin, win } = useContext(ThemeContext);
+  const { singleword, setWin, win, setMasterFinalWord } =
+    useContext(ThemeContext);
   const row1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const enter = {
@@ -59,7 +60,11 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
         }, '');
         if (enteredWord === singleword) {
           console.info('>>>YOU WIN!!! 🎉');
-          yellowifyLetters(greenifyLetters(singleword, grid, row), grid, row);
+          yellowifyLetters(
+            greenifyLetters(singleword, grid, row, setMasterFinalWord),
+            grid,
+            row
+          );
           setGrid(grid);
           setWin(true);
         } else {
@@ -67,7 +72,11 @@ const Keyboard = ({ row, setRow, col, setCol, grid, setGrid }) => {
           let newCol = 0;
           setRow(newRow);
           setCol(newCol);
-          yellowifyLetters(greenifyLetters(singleword, grid, row), grid, row);
+          yellowifyLetters(
+            greenifyLetters(singleword, grid, row, setMasterFinalWord),
+            grid,
+            row
+          );
           setGrid(grid);
         }
       } else if (e.keyCode >= 65 && e.keyCode <= 90) {
